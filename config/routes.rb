@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'site#index'
   get 'site/index'
 
-  get 'site/tile'
+  get '/tile', to: 'site#tile'
 
   get 'site/browsertoosmall'
 
