@@ -6,6 +6,7 @@ class SiteController < ApplicationController
   end
 
   def browsertoosmall
+    
   end
 
   def noscrolling
