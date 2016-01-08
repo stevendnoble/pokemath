@@ -4,11 +4,7 @@
 
 $(document).ready(function() {
 
-
-
-
-
-	function browserTooSmall() {
+  function browserTooSmall() {
 		var winWidth = $(window).width();
 		var winHeight = $(window).height();
 
@@ -19,9 +15,6 @@ $(document).ready(function() {
 	}
 
 	browserTooSmall();
-
-
-
 
 $(window).on("resize", browserTooSmall);
 
