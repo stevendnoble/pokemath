@@ -1,10 +1,10 @@
 
-//NoScroll: set both body and html height: 100%
+//NoScroll: set both body and html to height: 100%
 body, 
 html {
 	height: 100%;
 }
-//NoScroll: set to stretch across all the body height
+//NoScroll: set a div inside the body and stretch across all the body height
 div.wrapper {
 	height: 100%;
 	overflow: hidden;
