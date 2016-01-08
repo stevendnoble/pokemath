@@ -9,6 +9,7 @@ class SiteController < ApplicationController
   end
 
   def noscrolling
+    
   end
 
   def navbar

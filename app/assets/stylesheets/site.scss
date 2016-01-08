@@ -1,3 +1,15 @@
-// Place all the styles related to the site controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//NoScroll: set both body and html height: 100%
+body, 
+html {
+	height: 100%;
+}
+//NoScroll: set to stretch across all the body height
+div.wrapper {
+	height: 100%;
+	overflow: hidden;
+}
+//NoScroll
+body {
+	overflow: hidden;
+}
