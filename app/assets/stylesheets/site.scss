@@ -1,8 +1,19 @@
-// Place all the styles related to the site controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Prevents scrolling on the page
+body, 
+html {
+	height: 100%;
+}
 
-/* styling for game tiles */
+div.wrapper {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	overflow: hidden;
+}
+
+// styling for game tiles
 .game-tile {
 	background-color: green;
 	border-color: darkgreen;
