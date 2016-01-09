@@ -4,17 +4,22 @@ html {
 	height: 100%;
 }
 
-div.wrapper {
-	height: 100%;
+body {
 	overflow: hidden;
 }
 
+div.wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
-	overflow: hidden;
+  margin-top: 70px;
 }
 
 // styling for game tiles
 .game-tile {
 	background-color: green;
-	border-color: darkgreen;
+	border: solid 1px white;
+	padding: 0;
 }

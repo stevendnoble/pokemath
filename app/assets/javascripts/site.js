@@ -4,19 +4,26 @@
 
 $(document).ready(function() {
 
+  var $firstBox = $('#r0c0');
+  var $gameTile = $('.game-tile');
+
   function browserTooSmall() {
-		var winWidth = $(window).width();
-		var winHeight = $(window).height();
+    var winWidth = $(window).width();
+    var winHeight = $(window).height();
+    if ((winWidth < 640) && (winHeight < 480)) {
+      alert("Window size too small!");
+    }
+  }
 
-		if ((winWidth < 640) && (winHeight < 480)) {
-			alert("Window size too small!");
-		}
+  function squareTile() {
+    var columnHeight = $('#r0c0').width();
+    $('.game-tile').height(columnHeight);
+  }
 
-	}
+  squareTile();
+  browserTooSmall();
 
-	browserTooSmall();
-
-$(window).on("resize", browserTooSmall);
-
+  $(window).on("resize", squareTile);
+  $(window).on("resize", browserTooSmall);
 
 });

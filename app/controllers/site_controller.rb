@@ -3,7 +3,7 @@ class SiteController < ApplicationController
   end
 
   def tile
-    @rows = 8
+    @rows = 6
     @columns = 12
   end
 
