@@ -2,8 +2,8 @@
 	<% @rows.times do |i| %>
 		<div class="row">
 			<% @columns.times do |j| %>
-				<div class="col-xs-1 game-tile" id="r<%= i %>c<%= j %>">
-					asdf
+				<div class="col-xs-1 game-tile" data-row"<%= i %>" data-col="<%= j %>" id="r<%= i %>c<%= j %>">
+
 				</div>
 			<% end %>
 		</div>

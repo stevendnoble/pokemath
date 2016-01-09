@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require bootstrap-sprockets
+
+$(window).on("resize", squareTile);
+$(document).ready(squareTile);
+
+$firstBox = $('#r0c0');
+$gameTile = $('.game-tile');
+
+function squareTile() {
+	var columnHeight = $('#r0c0').width();
+	$('.game-tile').height(columnHeight);
+}
