@@ -2,18 +2,26 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http: //coffeescript.org/
 
-$(document).ready(function() {
+var resizeTimer;
 
-  var $firstBox = $('#r0c0');
-  var $gameTile = $('.game-tile');
-
-  function browserTooSmall() {
+function browserTooSmall() {
+  if (resizeTimer) {
+    clearTimeout(resizeTimer);
+  }
+  resizeTimer = setTimeout(function() {
     var winWidth = $(window).width();
     var winHeight = $(window).height();
+
     if ((winWidth < 640) && (winHeight < 480)) {
       alert("Window size too small!");
     }
-  }
+  }, 500);
+}
+
+
+$(document).ready(function() {
+  var $firstBox = $('#r0c0');
+  var $gameTile = $('.game-tile');
 
   function squareTile() {
     var columnHeight = $('#r0c0').width();
@@ -25,5 +33,4 @@ $(document).ready(function() {
 
   $(window).on("resize", squareTile);
   $(window).on("resize", browserTooSmall);
-
 });
