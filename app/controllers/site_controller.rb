@@ -3,6 +3,8 @@ class SiteController < ApplicationController
   end
 
   def tile
+    @rows = 8
+    @columns = 12
   end
 
   def browsertoosmall

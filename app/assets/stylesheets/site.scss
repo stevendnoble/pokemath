@@ -1,15 +1,20 @@
-
-//NoScroll: set both body and html to height: 100%
+// Prevents scrolling on the page
 body, 
 html {
 	height: 100%;
 }
-//NoScroll: set a div inside the body and stretch across all the body height
+
 div.wrapper {
 	height: 100%;
 	overflow: hidden;
 }
-//NoScroll
+
 body {
 	overflow: hidden;
+}
+
+// styling for game tiles
+.game-tile {
+	background-color: green;
+	border-color: darkgreen;
 }

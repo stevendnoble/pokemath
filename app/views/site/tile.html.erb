@@ -1,2 +1,11 @@
-<h1>Site#tile</h1>
-<p>Find me in app/views/site/tile.html.erb</p>
+<div class="container">
+	<% @rows.times do |i| %>
+		<div class="row">
+			<% @columns.times do |j| %>
+				<div class="col-xs-1 game-tile" id="r<%= i %>c<%= j %>">
+					asdf
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+</div>
