@@ -1,2 +1,31 @@
-<h1>Site#index</h1>
-<p>Find me in app/views/site/index.html.erb</p>
+<div class="container">
+  <% @rows.times do |i| %>
+    <div class="row">
+      <% @columns.times do |j| %>
+        <div class="col-xs-1 game-tile" data-row"<%= i %>" data-col="<%= j %>" id="r<%= i %>c<%= j %>">
+
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <div>
+      <h4>How to play:</h4>
+      <p>
+        <i class="ion-arrow-left-b"></i>
+        <i class="ion-arrow-up-b"></i>
+        <i class="ion-arrow-down-b"></i>
+        <i class="ion-arrow-right-b"></i>
+        &nbsp;&nbsp;Use the arrow keys on the keyboard to move
+      </p>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <h4>What to do</h4>
+      <p>Move around the map and try and capture as many pokemon as possible by answering some math problems!</p>
+    </div>
+  </div>
+</div>
