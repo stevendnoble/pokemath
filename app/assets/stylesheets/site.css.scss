@@ -2,8 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+	margin-top: 70px;
+}
+
 /* styling for game tiles */
 .game-tile {
 	background-color: green;
-	border-color: darkgreen;
+	border: solid 1px white;
+	padding: 0;
 }
