@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'site/index'
 
-  get 'site/tile'
+  get '/tile', to: 'site#tile'
 
   get 'site/browsertoosmall'
 

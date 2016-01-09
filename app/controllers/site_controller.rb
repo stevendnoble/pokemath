@@ -3,6 +3,8 @@ class SiteController < ApplicationController
   end
 
   def tile
+    @rows = 8
+    @columns = 12
   end
 
   def browsertoosmall
@@ -10,6 +12,7 @@ class SiteController < ApplicationController
   end
 
   def noscrolling
+    
   end
 
   def navbar
