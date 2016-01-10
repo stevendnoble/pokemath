@@ -2,7 +2,7 @@
   <% @rows.times do |i| %>
     <div class="row">
       <% @columns.times do |j| %>
-        <div class="col-xs-1 game-tile <% if i==0 || i==@rows-1 || j==0 || j==@columns-1 %>obstacle obstacle0-tile<% end %>" data-row"<%= i %>" data-col="<%= j %>" id="r<%= i %>c<%= j %>">
+        <div class="col-xs-1 game-tile <% if i==0 || i==@rows-1 || j==0 || j==@columns-1 %>obstacle obstacle1-tile<% end %>" data-row"<%= i %>" data-col="<%= j %>" id="r<%= i %>c<%= j %>">
 
         </div>
       <% end %>
