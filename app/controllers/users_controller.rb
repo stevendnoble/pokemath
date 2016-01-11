@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     else
       user = User.new(user_params)
+    end
     if user.save
       flash[:notice] = "You have successfully created an account"
       session[:user_id] = user.id
