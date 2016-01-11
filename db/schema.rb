@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111023716) do
+ActiveRecord::Schema.define(version: 20160111221736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "caught_pokemons", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "pokemon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pokemons", force: :cascade do |t|
     t.integer  "national_id"
@@ -24,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160111023716) do
     t.string   "evolution"
     t.integer  "attack"
     t.integer  "defense"
-    t.integer  "sp_atttack"
+    t.integer  "sp_attack"
     t.integer  "sp_defense"
     t.integer  "speed"
     t.string   "sprite"
@@ -42,4 +50,6 @@ ActiveRecord::Schema.define(version: 20160111023716) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "caught_pokemons", "pokemons"
+  add_foreign_key "caught_pokemons", "users"
 end

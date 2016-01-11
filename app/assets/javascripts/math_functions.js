@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 function randDigit(min, max) {
 	return Math.floor(Math.random() * (max-min + 1) + min);
 }
@@ -105,3 +107,5 @@ function createSimpleDivisionProblem(numPossibleSolutions) {
 	}
 	return {num1: num1, num2: num2, operation: String.fromCharCode(247), answer: quotient, choices: possibleSolutions};
 }
+
+});

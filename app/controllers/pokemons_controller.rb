@@ -1,15 +1,16 @@
 class PokemonsController < ApplicationController
   
-  # may not work...
-  # find out how to index by national id
-
   def new
+  end
+
+  def show
+    @caught_pokemon = CaughtPokemon.new
     # if it is in the database, get from the database
-    if @pokemon = Pokemon.find_by_national_id(new_pokemon_id)
+    if @pokemon = Pokemon.find_by_national_id(params[:id])
 
     # otherwise get from the api
     else
-      new_pokemon = Pokegem.get "pokemon", new_pokemon_id
+      new_pokemon = Pokegem.get "pokemon", params[:id]
       parsed_pokemon = ActiveSupport::JSON.decode(new_pokemon)
       if parsed_pokemon["types"][1]
         type2 = parsed_pokemon["types"][1]["name"]
@@ -50,9 +51,16 @@ class PokemonsController < ApplicationController
   end
 
   def create
-
   end
 
-  def show
-  end
+  private
+
+  # def set_pokemon
+  #   pokemon_id = params[:id]
+  #   @pokemon = Pokemon.find_by_national_id
+  # end
+
+  # def pokemon_params
+  #   params.require(:pokemon).permit(:)
+  # end
 end

@@ -1,2 +1,91 @@
-<h1>Pokemons#show</h1>
-<p>Find me in app/views/pokemons/show.html.erb</p>
+<div class="container game-screen">
+  <div class="row" id="battle-screen">
+    <div class="col-xs-8 battle-toggle" id="battle-encounter">
+      <h1>You've encountered a <%= @pokemon.species %></h1>
+      <h2>Answer all five questions correctly to catch <%= @pokemon.species %>.</h2>
+      <h2>Be sure to answer fast enough, or <%= @pokemon.species %> will run away!</h2>
+      <h2>Press [spacebar] to begin.</h2>
+    </div>
+    <div class="col-xs-8 battle-toggle" id="battle-questions">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">Problem #1</h1> <!-- problem# -->
+        </div>
+      </div>
+      <div class="row"> <!-- question -->
+        <div class="col-xs-12">
+          <h1 class="text-center">4 + 8 =</h1>
+        </div>
+      </div>
+      <div class="row"> <!-- answers -->
+        <div class="col-xs-2 col-xs-offset-3">
+          <h1 class="text-center">12</h1>
+        </div>
+        <div class="col-xs-2">
+          <h1 class="text-center">11</h1>
+        </div>
+        <div class="col-xs-2">
+          <h1 class="text-center">10</h1>
+        </div>
+      </div>
+      <div class="row"> <!-- keys -->
+        <div class="col-xs-2 col-xs-offset-3">
+          <h1><i class="ion-arrow-left-b btn btn-block"></i></h1>
+        </div>
+        <div class="col-xs-2">
+          <h1><i class="ion-arrow-down-b btn btn-block"></i></h1>
+        </div>
+        <div class="col-xs-2">
+          <h1><i class="ion-arrow-right-b btn btn-block"></i></h1>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-8 battle-toggle" id="battle-caught">
+      <h1 class="text-center">You've caught <%= @pokemon.species %>!</h1>
+      <h2>Give your <%= @pokemon.species %> a name and save him to your PokeDex.</h2>
+      <%= form_for @caught_pokemon do |f| %>
+        <div class="form-group">
+          <%= f.text_field :name, class: "form-control", placeholder: "Enter your pokemon name", autofocus: true  %>
+        </div>
+        <%= f.hidden_field :pokemon_id, value: params[:id] %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <div class="form-group">
+          <%= f.submit "Save to PokeDex", class: "btn btn-block btn-success" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-8 battle-toggle" id="battle-escaped">
+      <h1><%= @pokemon.species %> ran away...</h1>
+      <h2>Press [spacebar] to return to the map.</h2>
+    </div>
+    <div class="col-xs-4">
+      <div class="row">
+        <div class="col-xs-12">
+          <%= image_tag "pokemon/"+@pokemon.sprite, class: "battle-pokemon img-responsive" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1" id="choose-you">
+          <h1>I choose you, <span id="answer-choice"></span>!</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row directions"> <!-- Directions -->
+    <div class="col-xs-6">
+      <div>
+      <h4>How to play:</h4>
+      <p>
+        <i class="ion-arrow-left-b"></i>
+        <i class="ion-arrow-down-b"></i>
+        <i class="ion-arrow-right-b"></i>
+        &nbsp;&nbsp;Use the arrow keys to select an answer
+      </p>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <h4>What to do</h4>
+      <p>Answer all five questions before the timer runs out to catch a new pokemon!</p>
+    </div>
+  </div>
+</div>
