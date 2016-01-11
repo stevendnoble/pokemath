@@ -2,10 +2,10 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand " href="#first"><i class="ion-pound"></i> pokemath</a>
     </div>
@@ -15,12 +15,20 @@
           <%= link_to "PokeDex", "#" %>
         </li>
         <li>
-          <%= link_to "Login", "#" %>
+          <% if current_user %> Signed in as <%= current_user.username %>
+        </li>
+        <li> 
+          <%= link_to 'Logout', '/logout' %>
         </li>
         <li>
-         <%= link_to "Sign Up", "#" %>
+          <% else %>
+          <%= link_to 'Login', '/login' %> 
         </li>
-      </ul>
-    </div>
-  </div>
+        <li> 
+          <%= link_to 'Signup', '/signup' %>
+        </li>
+    <% end %>
+  </ul>
+</div>
+</div>
 </nav>
