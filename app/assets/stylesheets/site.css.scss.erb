@@ -13,11 +13,19 @@ div.wrapper {
   overflow: hidden;
 }
 
+// Styling for navbar
 body {
   margin-top: 70px;
 }
 
-// styling for game tiles
+// Styling for gamescreen
+.game-screen {
+}
+
+.directions {
+}
+
+// Styling for gamemap
 .game-tile {
 	background-color: green;
 	padding: 0;
@@ -25,16 +33,51 @@ body {
 }
 
 .obstacle1-tile {
-  content: url('tree.png');  
+  background-image: url('tree.png'); 
+  background-size: cover; 
 }
 
 .obstacle2-tile {
-  content: url('stump.png');  
+  background-image: url('stump.png');  
+  background-size: cover; 
 }
 
 .obstacle3-tile {
-  content: url('log.png');  
+  background-image: url('log.png');  
+  background-size: cover; 
 }
-// .character-tile {
-//   content: url('d1.png');  
-// }
+
+/*#game-map,
+#ash {
+  position:absolute;
+}
+
+#ash {
+  margin-left:5px;
+  z-index: 10;
+}*/
+
+// Styling for battle screen
+#battle-screen {
+  background-color: yellow;
+  border: 3px solid gold;
+}
+
+#game-map {
+  border: 3px solid gold;
+}
+
+#map-toggle {
+  /*display: none;*/
+}
+
+img {
+  width: 100%;
+}
+
+.outer-container {
+  padding: 0;
+}
+
+
+
