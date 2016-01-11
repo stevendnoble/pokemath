@@ -12,15 +12,21 @@ class UsersController < ApplicationController
     if current_user
       redirect_to user_path(current_user)
     else
-      user = User.new(user_params)
+      @user = User.new(user_params)
     end
-    if user.save
+    if @user.save
       flash[:notice] = "You have successfully created an account"
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       redirect_to '/'
     else 
       redirect_to '/signup'
     end
+  end
+
+  def show
+  end
+
+  def destroy
   end
 
   private

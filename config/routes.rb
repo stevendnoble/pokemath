@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   root to: "site#index"
   resources :pokemons, only: [:new, :create, :show]
+  resources :users, except: [:index, :edit, :update]
 
   get "/signup" => "users#new"
   post "/users" => "users#create"
