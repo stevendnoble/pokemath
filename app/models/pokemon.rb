@@ -1,5 +1,6 @@
 class Pokemon < ActiveRecord::Base
 
-  has_many :pokemons, through: :caught_pokemon
+  has_many :caught_pokemons
+  has_many :users, through: :caught_pokemons
 
 end
