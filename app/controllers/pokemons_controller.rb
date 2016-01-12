@@ -5,6 +5,7 @@ class PokemonsController < ApplicationController
 
   def show
     @caught_pokemon = CaughtPokemon.new
+    
     # if it is in the database, get from the database
     if @pokemon = Pokemon.find_by_national_id(params[:id])
 

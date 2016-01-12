@@ -5,3 +5,4 @@ class User < ActiveRecord::Base
   has_many :pokemons, through: :caught_pokemons
 
 end 
+
