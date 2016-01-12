@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require scripts
 //= require site
 //= require pokemons
 //= require math_functions
