@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: "site#index"
   resources :pokemons, only: [:new, :create, :show]
   resources :users, except: [:index, :edit, :update]
@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   resources :sessions, only: [:create]
 
-  post '/savemap' => "site#index"
+  post '/mapstate' => "mapstates#create"
+  get '/mapstate' => "mapstates#index"
 
 end
 
