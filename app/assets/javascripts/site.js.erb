@@ -141,51 +141,77 @@ $(document).ready(function() {
   // });
 
   $(window).on("resize", setSize);
-  $(window).on("resize", browserTooSmall);
+  // $(window).on("resize", browserTooSmall);
 
   $(".site.map").ready(function() {
-    var ashPos = { row: 3, col: 5 }
-    var keyPressed;
+    var keyPressed,
+        ash = $('#ash');
+
+    function moveLeft(position, selector) {
+      selector.animate({ left: ('-='+columnHeight) });
+      position.col -= 1;
+    }
+
+    function moveUp(position, selector) {
+      selector.animate({ top: ('-='+columnHeight) });
+      position.row -= 1;
+    }
+
+    function moveRight(position, selector) {
+      selector.animate({ left: ('+='+columnHeight) });
+      position.col += 1;
+    }
+
+    function moveDown(position, selector) {
+      selector.animate({ top: ('+='+columnHeight) });
+      position.row += 1;
+    }    
+
+    function checkLeft(position) {
+      return mapArray[position.row][position.col - 1];
+    }
+
+    function checkUp(position) {
+      return mapArray[position.row - 1][position.col];
+    }
+
+    function checkRight(position) {
+      return mapArray[position.row][position.col + 1];
+    }
+
+    function checkDown(position) {
+      return mapArray[position.row + 1][position.col];
+    }
+
+    var key = {
+      '106': { 
+        position: checkLeft, 
+        direction: moveLeft
+      },
+      '105': { 
+        position: checkUp,
+        direction: moveUp
+      },
+      '108': { 
+        position: checkRight,
+        direction: moveRight
+      },
+      '107': { 
+        position: checkDown,
+        direction: moveDown
+      }
+    }
 
     $(document).on('keypress', function(event) {
-      event.preventDefault();
-      keyPressed = event.which;
-      if (keyPressed === 106) {
-        // left
-        console.log('left');
-        // if (mapArray[ashPos.row][ashPos.col - 1] === 0) {
-          $('#ash').animate({ left: ('-='+columnHeight) });
-          ashPos.col -= 1;
-          mapArray[ashPos.row][ashPos.col - 1] = 1;
-          mapArray[ashPos.row][ashPos.col] = 0;
-        // }
-      } else if (keyPressed === 105) {
-        // up
-        console.log('up');
-        // if (mapArray[ashPos.row - 1][ashPos.col] === 0) {
-          $('#ash').animate({ top: ('-='+columnHeight) });
-          ashPos.row -= 1;
-          mapArray[ashPos.row - 1][ashPos.col] = 1;
-          mapArray[ashPos.row][ashPos.col] = 0;
-        // }
-      } else if (keyPressed === 108) {
-        // right
-        console.log('right');
-        // if (mapArray[ashPos.row + 1][ashPos.col + 1] === 0) {
-          $('#ash').animate({ left: ('+='+columnHeight) });
-          ashPos.col += 1;
-          mapArray[ashPos.row][ashPos.col + 1] = 1;
-          mapArray[ashPos.row][ashPos.col] = 0;
-        // }
-      } else if (keyPressed === 107) {
-        // down
-        console.log('down');
-        // if (mapArray[ashPos.row][ashPos.col] === 0) {
-          $('#ash').animate({ top: ('+='+columnHeight) });
-          ashPos.row += 1;
-          mapArray[ashPos.row + 1][ashPos.col] = 1;
-          mapArray[ashPos.row][ashPos.col] = 0;
-        // }
+      keyPressed = event.which.toString();
+      console.log(key[keyPressed].position(ashPos) === 0)
+      debugger
+      if (key[keyPressed].position(ashPos) === 0) {
+        // moveLeft, moveUp, etc.
+        key[keyPressed].direction(ashPos, $('#ash'))
+      } else if (typeof key[keyPressed].position(ashPos) === 'number') {
+        url = "pokemons/" + key[keyPressed].position(ashPos)
+        window.location.href = url; 
       }
     });
 
