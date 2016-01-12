@@ -17,3 +17,8 @@
 //= require pokemons
 //= require math_functions
 //= require jquery-readyselector
+
+$(function() {
+    new WOW().init();
+
+});
