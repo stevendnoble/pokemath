@@ -16,3 +16,4 @@
 //= require site
 //= require pokemons
 //= require math_functions
+//= require jquery-readyselector

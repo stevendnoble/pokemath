@@ -28,22 +28,23 @@ body {
 // Styling for gamemap
 .game-tile {
 	background-color: green;
+/*  border: 1px solid white;*/
 	padding: 0;
   background-image: url('grass.png');
   background-size: cover;
 }
 
-.obstacle1-tile {
+.obstacle3-tile {
   background-image: url('tree.png'); 
   background-size: cover; 
 }
 
-.obstacle2-tile {
+.obstacle4-tile {
   background-image: url('stump.png');  
   background-size: cover; 
 }
 
-.obstacle3-tile {
+.obstacle5-tile {
   background-image: url('log.png');  
   background-size: cover; 
 }
@@ -77,14 +78,15 @@ img {
 }
 
 #ash {
-  height: 60%;
-  width: 60%;
+/*  height: 60%;
+  width: 60%;*/
   position: absolute;
-  top: 0;
+  z-index: 9000;
+/*  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
+  margin: auto;*/
 }
 
 .outer-container {

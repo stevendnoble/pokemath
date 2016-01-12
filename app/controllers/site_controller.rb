@@ -4,6 +4,12 @@ class SiteController < ApplicationController
   # before_filter :authorize
   
   def index
+  end
+
+  def about
+  end
+
+  def map
     @rows = 6
     @columns = 12
   end
