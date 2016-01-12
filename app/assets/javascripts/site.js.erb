@@ -28,7 +28,7 @@ $(document).ready(function() {
       $battleScreen = $('#battle-screen');
 
 
-  var ashUrl = '<img src="/assets/d1.png" id="ash">';
+  var ashUrl = '<img src="/assets/ash/d1.png" id="ash">';
 
   var columnHeight;
 
@@ -58,15 +58,7 @@ $(document).ready(function() {
   function placeAsh(row, col, callback) {
     selector = generateSelector(row, col);
     $(selector).html(ashUrl);
-    // centerAsh();
   }
-
-  // function centerAsh() {
-  //   var ashHeight = $('#ash').height();
-  //   console.log(ashHeight)
-  //   columnHeight = $gameScreen.width() / 12;
-  //   $('#ash').css('margin', ((columnHeight - ashHeight) / 2))
-  // }
 
   // Place given number of pokemon on the map
   function placePokemon(number) {
