@@ -192,7 +192,7 @@ DEPENDENCIES
   ionicons-rails
   jbuilder (~> 2.0)
   jquery-rails
-  pg (~> 0.15)
+  pg
   pokegem
   rails (= 4.2.5)
   rails_12factor
