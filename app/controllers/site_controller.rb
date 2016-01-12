@@ -6,5 +6,10 @@ class SiteController < ApplicationController
   def index
     @rows = 6
     @columns = 12
+
+  end
+
+  def mapstate
+    session[:map_state] = params[:data_value]
   end
 end

@@ -1,7 +1,6 @@
 // # Place all the behaviors and hooks related to the matching controller here.
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http: //coffeescript.org/
-
 var resizeTimer;
 
 // Checks the size of the browser and alerts the user if
@@ -116,6 +115,17 @@ $(document).ready(function() {
   $(window).on("resize", browserTooSmall);
 
   setMap();
+
+
+//gets the map as string becomes a string
+//now needs to pass through some kind of request and be able to access through the controller 
+  $.ajax({
+    type: "post",
+    url: "http://localhost:3000/savemap",
+    // grabbing the map array and turning it into string
+    data: {data_value: JSON.stringify(mapArray)},
+  });
+  
 });
 
 
