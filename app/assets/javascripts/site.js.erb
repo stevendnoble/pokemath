@@ -203,6 +203,16 @@ $(document).ready(function() {
   });
 
   setMap();
+
+
+//now needs to pass through some kind of request and be able to access through the controller 
+  $.ajax({
+    type: "post",
+    url: "/mapstate",
+    // grabbing the map array and turning it into string
+    data: {data_value: JSON.stringify(mapArray)}
+  });
+  
 });
 
 

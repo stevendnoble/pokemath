@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_username(params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    @user = User.find_by_username(user_params[:username])
+    if @user && @user.authenticate(user_params[:password])
+      session[:user_id] = @user.id
       redirect_to '/'
     else
       redirect_to '/login'
@@ -14,8 +14,13 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:map_state] = nil
     session[:user_id] = nil
     redirect_to '/login'
   end
 
+private
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
 end

@@ -13,4 +13,5 @@ class SiteController < ApplicationController
     @rows = 6
     @columns = 12
   end
+
 end
