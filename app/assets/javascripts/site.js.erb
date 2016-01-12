@@ -117,13 +117,12 @@ $(document).ready(function() {
   setMap();
 
 
-//gets the map as string becomes a string
 //now needs to pass through some kind of request and be able to access through the controller 
   $.ajax({
     type: "post",
-    url: "http://localhost:3000/savemap",
+    url: "/mapstate",
     // grabbing the map array and turning it into string
-    data: {data_value: JSON.stringify(mapArray)},
+    data: {data_value: JSON.stringify(mapArray)}
   });
   
 });

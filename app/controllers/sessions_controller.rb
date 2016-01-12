@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:map_state] = nil
     session[:user_id] = nil
     redirect_to '/login'
   end
