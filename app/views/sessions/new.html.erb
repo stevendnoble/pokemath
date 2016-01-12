@@ -2,7 +2,7 @@
   <div class="col-md-4 col-md-offset-4 stitch2">
     <h1>Login</h1>
     <hr>
-    <%= form_for :user, url: login_path do |f| %>
+    <%= form_for :user, url: "/sessions", method: :post do |f| %>
       <div class="form-group">
         <%= f.label :username %>
         <%= f.text_field :username, class: "form-control", placeholder: "Your Username", autofocus: true %>
