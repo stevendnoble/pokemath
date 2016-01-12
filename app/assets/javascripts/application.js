@@ -21,4 +21,6 @@
 $(function() {
     new WOW().init();
 
+    //mute video
+    $("video").prop("muted", true);
 });
