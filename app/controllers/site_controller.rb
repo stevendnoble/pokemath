@@ -4,12 +4,9 @@ class SiteController < ApplicationController
   # before_filter :authorize
   
   def index
+    session[:map_state] = params[:data_value]
     @rows = 6
     @columns = 12
-
   end
 
-  def mapstate
-    session[:map_state] = params[:data_value]
-  end
 end

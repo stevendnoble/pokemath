@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   resources :sessions, only: [:create]
 
-  post '/savemap' => "site#mapstate"
+  post '/savemap' => "site#index"
 
 end
 
