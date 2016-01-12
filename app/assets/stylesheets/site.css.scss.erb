@@ -1,3 +1,4 @@
+$pokered: #E3350D; 
 // Prevents scrolling on the page
 body, 
 html {
@@ -139,12 +140,29 @@ video {
 .navbar-default {
     border-color: rgba(35,35,35,.05);
     background-color: transparent;
+    border-color: transparent;
 }
 
 .navbar-header a.navbar-brand {
   color: white;
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  transition: all .4s;
 }
+.navbar-header a.navbar-brand:hover, 
+.navbar-header a.navbar-brand:focus {
+  color: $pokered;
+}
+
 #bs-navbar ul.nav > li a {
-  color: white
+  color: white;
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  transition: all .4s;
 }
+#bs-navbar ul.nav > li a:hover,
+ #bs-navbar ul.nav > li a:focus {
+  color: $pokered;
+}
+
 
