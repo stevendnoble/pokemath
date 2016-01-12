@@ -18,3 +18,10 @@
 //= require pokemons
 //= require math_functions
 //= require jquery-readyselector
+
+$(function() {
+    new WOW().init();
+
+    //mute video
+    $("video").prop("muted", true);
+});

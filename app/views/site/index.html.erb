@@ -1,0 +1,11 @@
+<header>
+
+  <%= video_tag (["theme.mp4"]), autoplay: '', loop: true, type:'video/mp4', id:"video-background", onended:"videoEnded()"%>
+  <div class="header-content">
+    <h1 class="cursive wow flipInX text-center">Pokemon logo will go here</h1>
+    <h4 class="text-center">Gotta solve them all</h4>
+    <p class="text-center">
+    <%= link_to "Signup to start playing!", signup_path, class:"btn btn-primary btn-landing" %></p>
+  </div>
+
+</header>
