@@ -1,11 +1,57 @@
 $(document).ready(function() {
+  $(".pokemons.show").ready(function() {
 
-  var $battleEncounter = $('#battle-encounter'),
-      $battleQuestions = $('#battle-questions'),
-      $battleCaught = $('#battle-caught'),
-      $battleEscaped = $('#battle-escaped');
+    var $battleEncounter = $('#battle-encounter'),
+        $battleQuestions = $('#battle-questions'),
+        $battleCaught = $('#battle-caught'),
+        $battleEscaped = $('#battle-escaped'),
+        $battleToggle = $('.battle-toggle');
 
-  $battleEscaped.toggle();
+    var $gameScreen = $('.game-screen'),
+        $battleScreen = $('#battle-screen');
 
-  
+    // Sets the height of a tile to be the same as the width
+    // to make each one a square
+    function setSizeBattle() {
+      var screenHeight = Math.floor($gameScreen.width() / 12);
+      $battleScreen.height(6*screenHeight);
+    }
+    setSizeBattle();
+    $(window).on("resize", setSizeBattle);
+
+
+    function selectView(selector) {
+      $battleToggle.hide();
+      selector.show();
+    }
+    selectView($battleEncounter);
+    
+  });
+
+  function startTimer(duration, display) {
+    var timer = duration;
+    var seconds;
+    var interval = setInterval(function () {
+      seconds = timer;
+      if(seconds < 10) {
+        seconds = "0" + seconds;
+      }
+      display.text("0:" + seconds);
+      //Auto resets timer once reaches 0. 
+      //If need to reset, funct clearInterval. setInterval return value as parameter. 
+      if (--timer < 0) {
+        //timer = duration;
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+
+  // jQuery(function ($) {
+  //    var fiveMinutes = 60 * 5,
+  //        tenSeconds = 10,
+  //        display = $('#time');
+  //    startTimer(tenSeconds, display);
+  // });
+
+
 });

@@ -1,0 +1,23 @@
+var resizeTimer;
+
+// Checks the size of the browser and alerts the user if
+// window is too small to view
+function browserTooSmall() {
+  if (resizeTimer) {
+    clearTimeout(resizeTimer);
+  }
+  resizeTimer = setTimeout(function() {
+    var winWidth = $(window).width();
+    var winHeight = $(window).height();
+
+    if ((winWidth < 640) || (winHeight < 480)) {
+      alert("Window size too small!");
+    }
+  }, 500);
+}
+// browserTooSmall();
+
+// Global variables
+$(document).ready(function() {
+  
+});
