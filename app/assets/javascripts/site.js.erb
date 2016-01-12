@@ -1,151 +1,95 @@
-var resizeTimer;
-
-// Checks the size of the browser and alerts the user if
-// window is too small to view
-function browserTooSmall() {
-  if (resizeTimer) {
-    clearTimeout(resizeTimer);
-  }
-  resizeTimer = setTimeout(function() {
-    var winWidth = $(window).width();
-    var winHeight = $(window).height();
-
-    if ((winWidth < 640) || (winHeight < 480)) {
-      alert("Window size too small!");
-    }
-  }, 500);
-}
-
 $(document).ready(function() {
-  var $gameScreen = $('.game-screen'),
-      $gameTile = $('.game-tile'),
-      $gameMap = $('#game-map'),
-      $battleScreen = $('#battle-screen');
-
-  var ashUrl = '<img src="/assets/ash/ash.png" id="ash">';
-
-  // 0 = available tile
-  // 1 = Ash (player character)
-  // 2 = pokemon
-  // 3+ = obstacles
-  var mapArray;
-  var map1 = [
-    ['o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1'],
-    ['o1',    0, 'o1',    0,    0,    0,    0,    0, 'o1',    0,    0, 'o1'],
-    ['o1',    0, 'o2',    0, 'o3', 'o3', 'o1',    0, 'o2', 'o2',    0, 'o1'],
-    ['o1',    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, 'o1'],
-    ['o1',    0,    0, 'o1',    0, 'o3',    0,    0, 'o1',    0,    0, 'o1'],
-    ['o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1']
-  ];
-
-  var ashPos = { row: 4, col: 10 };
-
-  var columnHeight;
-
-  // Generates jquery selector for the given row and column
-  function generateSelector(row, col) {
-    selector = '#r' + row + 'c' + col;
-    return selector;
-  }
-
-  // Place objects and characters on the map.
-  // Place given obstacle at the given row and column
-  function placeObstacle(obstacle, row, col) {
-    selector = generateSelector(row, col);
-    $(selector).addClass(obstacle);
-    $(selector).addClass('obstacle');
-  }
-
-  function placeAsh(row, col) {
-    selector = generateSelector(row, col);
-    $(selector).html(ashUrl);
-  }
-
-  // Place given number of pokemon on the map
-  function placePokemon(number) {
-    var pokemonId,
-        checkTile,
-        row,
-        col,
-        imageUrlToAppend;
-    for(i=0; i<number; i++) {
-      pokemonId = 1 + Math.floor(151*Math.random());
-      checkTile = true;
-      while (checkTile) {
-        row = 1 + Math.floor(4*Math.random());
-        col = 1 + Math.floor(10*Math.random());
-        selector = generateSelector(row, col);
-        if (mapArray[row][col] === 0 && (row !== ashPos.row && col !== ashPos.col)) {
-          checkTile = false;
-          $(selector).addClass('pokemon');
-          imageUrlToAppend = '<img src="/assets/pokemon/' + pokemonId + '.png" class="img-responsive">';
-          $(selector).html(imageUrlToAppend);
-          mapArray[row][col] = pokemonId;
-        }
-      }
-    }
-    console.log(mapArray);
-  }
-
-  // Sets the height of a tile to be the same as the width
-  // to make each one a square
-  function setSize() {
-    columnHeight = Math.floor($gameMap.width() / 12);
-    $gameTile.height(columnHeight);
-    $gameTile.width(columnHeight);
-    $battleScreen.height(6*columnHeight);
-  }
-
-  // 0 represents an open square (only a ground tile)
-  // 1 represents Ash
-  // 2 represents Pokemon
-  // 3+ represent Obstacles
-  function setMap() {
-    mapArray = map1;
-    placeAsh(ashPos.row, ashPos.col);
-    for(i=0;i<6;i++) {
-      for(j=0;j<12;j++) {
-        if(mapArray[i][j][0] === 'o') {
-          placeObstacle(mapArray[i][j], i, j);
-        }
-      }
-    }
-    setSize();
-    placePokemon(5);
-    // browserTooSmall();
-  }
-
-  function startTimer(duration, display) {
-     var timer = duration; 
-     var seconds;
-     var interval = setInterval(function (){
-       seconds = timer;
-       if(seconds < 10){
-         seconds = "0" + seconds;
-       }
-       display.text("0:" + seconds);
-       //Auto resets timer once reaches 0. 
-       //If need to reset, funct clearInterval. setInterval return value as parameter. 
-       if (--timer < 0) {
-         //timer = duration;
-         clearInterval(interval);
-       }
-     }, 1000);
-  }
-
-  // jQuery(function ($) {
-  //    var fiveMinutes = 60 * 5,
-  //        tenSeconds = 10,
-  //        display = $('#time');
-  //    startTimer(tenSeconds, display);
-  // });
-
-  $(window).on("resize", setSize);
-  // $(window).on("resize", browserTooSmall);
-
   $(".site.map").ready(function() {
+
     var keyPressed,
         ash = $('#ash');
+
+    var $gameScreen = $('.game-screen'),
+        $gameTile = $('.game-tile'),
+        $gameMap = $('#game-map');
+
+    var mapArray,
+        map1 = [
+          ['o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1'],
+          ['o1',    0, 'o1',    0,    0,    0,    0,    0, 'o1',    0,    0, 'o1'],
+          ['o1',    0, 'o2',    0, 'o3', 'o3', 'o1',    0, 'o2', 'o2',    0, 'o1'],
+          ['o1',    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, 'o1'],
+          ['o1',    0,    0, 'o1',    0, 'o3',    0,    0, 'o1',    0,    0, 'o1'],
+          ['o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1', 'o1']
+        ],
+        ashUrl = '<img src="/assets/ash/ash.png" id="ash">',
+        ashPos = { row: 4, col: 10 },
+        columnHeight;
+
+    // Sets the height of a tile to be the same as the width
+    // to make each one a square
+    function setSizeMap() {
+      columnHeight = Math.floor($gameMap.width() / 12);
+      $gameTile.height(columnHeight);
+      $gameTile.width(columnHeight);
+    }
+    setSizeMap();
+    $(window).on("resize", setSizeMap);
+
+
+    // Generates jquery selector for the given row and column
+    function generateSelector(row, col) {
+      selector = '#r' + row + 'c' + col;
+      return selector;
+    }
+
+    // Place objects and characters on the map.
+    // Place given obstacle at the given row and column
+    function placeObstacle(obstacle, row, col) {
+      selector = generateSelector(row, col);
+      $(selector).addClass(obstacle);
+      $(selector).addClass('obstacle');
+    }
+
+    function placeAsh(row, col) {
+      selector = generateSelector(row, col);
+      $(selector).html(ashUrl);
+    }
+
+    // Place given number of pokemon on the map
+    function placePokemon(number) {
+      var pokemonId,
+          checkTile,
+          row,
+          col,
+          imageUrlToAppend;
+      for(i=0; i<number; i++) {
+        pokemonId = 1 + Math.floor(151*Math.random());
+        checkTile = true;
+        while (checkTile) {
+          row = 1 + Math.floor(4*Math.random());
+          col = 1 + Math.floor(10*Math.random());
+          selector = generateSelector(row, col);
+          if (mapArray[row][col] === 0 && (row !== ashPos.row && col !== ashPos.col)) {
+            checkTile = false;
+            $(selector).addClass('pokemon');
+            imageUrlToAppend = '<img src="/assets/pokemon/' + pokemonId + '.png" class="img-responsive">';
+            $(selector).html(imageUrlToAppend);
+            mapArray[row][col] = pokemonId;
+          }
+        }
+      }
+      console.log(mapArray);
+    }
+
+    function setMap() {
+      mapArray = map1;
+      placeAsh(ashPos.row, ashPos.col);
+      for(i=0;i<6;i++) {
+        for(j=0;j<12;j++) {
+          if(mapArray[i][j][0] === 'o') {
+            placeObstacle(mapArray[i][j], i, j);
+          }
+        }
+      }
+      placePokemon(5);
+    }
+    setMap();
 
     function moveLeft(position, selector) {
       selector.animate({ left: ('-='+columnHeight) });
@@ -205,39 +149,24 @@ $(document).ready(function() {
     $(document).on('keypress', function(event) {
       keyPressed = event.which.toString();
       console.log(key[keyPressed].position(ashPos) === 0)
-      debugger
       if (key[keyPressed].position(ashPos) === 0) {
         // moveLeft, moveUp, etc.
         key[keyPressed].direction(ashPos, $('#ash'))
       } else if (typeof key[keyPressed].position(ashPos) === 'number') {
         url = "pokemons/" + key[keyPressed].position(ashPos)
+        $(document).off('keypress');
         window.location.href = url; 
       }
     });
-
-    function checkDirection() {
-
-    }
-
-    function moveAsh(){
-
-    }
-    
-    function initiateBattle() {
-
-    }
   });
 
-  setMap();
-
-
-//now needs to pass through some kind of request and be able to access through the controller 
-  $.ajax({
-    type: "post",
-    url: "/mapstate",
-    // grabbing the map array and turning it into string
-    data: {data_value: JSON.stringify(mapArray)}
-  });
+  //now needs to pass through some kind of request and be able to access through the controller 
+  // $.ajax({
+  //   type: "post",
+  //   url: "/mapstate",
+  //   // grabbing the map array and turning it into string
+  //   data: {data_value: JSON.stringify(mapArray)}
+  // });
   
 });
 
