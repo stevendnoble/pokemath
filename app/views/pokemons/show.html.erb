@@ -11,9 +11,11 @@
       </div>
     </div>
     <div class="col-xs-8 battle-toggle" id="battle-questions">
-      <div class="row" id="timer"> <!-- timer -->
+      <div class="row"> <!-- timer -->
         <div class="col-xs-12">
-          <h1 class="text-center">0:15</h1>
+          <h1 id="hidden-timer"><%= @pokemon.catch_rate / 10 %></h1>
+          <h1 class="text-center" id="timer"></h1>
+          <br>
         </div>
       </div>
       <div class="well">
@@ -24,7 +26,9 @@
         </div>
         <div class="row"> <!-- question -->
           <div class="col-xs-12">
-            <h1 class="text-center"><span id="num1"></span> <span id="operation"></span> <span id="num2"></span> =</h1>
+            <br>
+            <h1 class="text-center"><strong><span id="num1"></span> <span id="operation"></span> <span id="num2"></span> =</strong></h1>
+            <br>
           </div>
         </div>
         <div class="row"> <!-- answers -->
