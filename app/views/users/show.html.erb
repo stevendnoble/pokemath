@@ -25,8 +25,13 @@
           <div class="tab-pane container" id="caughtPokemon">
             <h1>Enslaved Pokemon</h1>
             <% @user.pokemons.each do |pokemon| %>
-              <h4><%= pokemon.species %> <small><%= pokemon.catch_rate %></small></h4>
-            <% end %>
+              <div>
+                <h4><%= pokemon.species %> <small><%= pokemon.catch_rate %></small></h4>
+                <div>
+                <%= image_tag "pokemon/"+pokemon.sprite,class: "img-responsive"%>
+                </div>
+              <% end %>
+              </div>
           </div>
           <div class="tab-pane container" id="playerStat">
             <h1>Player stats</h1>

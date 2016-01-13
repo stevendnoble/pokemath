@@ -1,3 +1,16 @@
+// Battle page font
+@font-face {
+    font-family: 'pokemon_gbregular';
+    src: url('pokemon_gb.eot');
+    src: url('pokemon_gb.eot?#iefix') format('embedded-opentype'),
+         url('pokemon_gb.woff2') format('woff2'),
+         url('pokemon_gb.woff') format('woff'),
+         url('pokemon_gb.ttf') format('truetype'),
+         url('pokemon_gb.svg#pokemon_gbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 #choose-you {
   display: none;
 }
@@ -12,6 +25,7 @@
 
 // Styling for battle screen
 #battle-screen {
+  font-family: 'pokemon_gbregular';
   background-color: white;
 }
 
