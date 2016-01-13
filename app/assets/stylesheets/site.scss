@@ -50,11 +50,15 @@ $pokered: #E3350D;
   }
 
 // Styling for landing page
+  body {
+    font-size: 100%;
+  }
+
   header h1 {
     font-family: 'pokemon_solidnormal';
     letter-spacing: 2.5px;
     color: white;
-    font-size: 80px;
+    font-size: 12em;
     margin-top: 12%;
     margin-bottom: 30px;
   }
@@ -69,6 +73,7 @@ $pokered: #E3350D;
     letter-spacing: 2px;
     color: white;
     margin-top: 10px;
+    font-size: 2em;
   }
 
   header p {

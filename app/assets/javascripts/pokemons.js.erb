@@ -40,33 +40,6 @@ $(document).ready(function() {
       selector.show();
     }
 
-    // Opens up the battle questions view
-    function startBattle() {
-      selectView($battleEncounter);
-      $(document).on('keypress', function(event) {
-        keyPressed = event.which;
-        if (keyPressed === 32) {
-          $(document).off('keypress');
-          selectView($battleQuestions);
-          displayQuestions();
-        }
-      });
-    }
-
-    // Inputs the values of the question on the html page    
-    function inputValues(questionNumber, question) {
-      console.log(questionNumber)
-      $problemNumber.html(questionNumber);
-      $num1.html(question.num1);
-      $num2.html(question.num2);
-      $operation.html(question.operation);
-      $choice1.html(question.choices[0]);
-      $choice2.html(question.choices[1]);
-      $choice3.html(question.choices[2]);
-    }
-
-    var questionNumber = 1;
-    var pokemonTemp = $battlePokemon.attr('src');
 
     // Displays the questions
     function displayQuestions() {
@@ -130,6 +103,35 @@ $(document).ready(function() {
         }
       });
     }
+
+    // Opens up the battle questions view
+    function startBattle() {
+      selectView($battleEncounter);
+      $(document).on('keypress', function(event) {
+        keyPressed = event.which;
+        if (keyPressed === 32) {
+          $(document).off('keypress');
+          selectView($battleQuestions);
+          displayQuestions();
+        }
+      });
+    }
+
+    // Inputs the values of the question on the html page    
+    function inputValues(questionNumber, question) {
+      console.log(questionNumber)
+      $problemNumber.html(questionNumber);
+      $num1.html(question.num1);
+      $num2.html(question.num2);
+      $operation.html(question.operation);
+      $choice1.html(question.choices[0]);
+      $choice2.html(question.choices[1]);
+      $choice3.html(question.choices[2]);
+    }
+
+    var questionNumber = 1;
+    var pokemonTemp = $battlePokemon.attr('src');
+
 
     startBattle();
 
