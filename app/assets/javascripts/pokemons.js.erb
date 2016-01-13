@@ -10,6 +10,17 @@ $(document).ready(function() {
     var $gameScreen = $('.game-screen'),
         $battleScreen = $('#battle-screen');
 
+    var $problemNumber = $('#problem-number'),
+        $num1 = $('#num1'),
+        $num2 = $('#num2'),
+        $operation = $('#operation'),
+        $choice1 = $('#choice1'),
+        $choice2 = $('#choice2'),
+        $choice3 = $('#choice3');
+
+    var keyPressed;
+    var questions;
+
     // Sets the height of a tile to be the same as the width
     // to make each one a square
     function setSizeBattle() {
@@ -19,13 +30,71 @@ $(document).ready(function() {
     setSizeBattle();
     $(window).on("resize", setSizeBattle);
 
-
     function selectView(selector) {
       $battleToggle.hide();
       selector.show();
     }
-    selectView($battleEncounter);
-    
+
+    // Opens up the battle questions view
+    function startBattle() {
+      selectView($battleEncounter);
+      $(document).on('keypress', function(event) {
+        keyPressed = event.which;
+        if (keyPressed === 32) {
+          $(document).off('keypress');
+          selectView($battleQuestions);
+          displayQuestions();
+        }
+      });
+    }
+
+    // Inputs the values of the question on the html page    
+    function inputValues(questionNumber, question) {
+      console.log(questionNumber)
+      $problemNumber.html(questionNumber);
+      $num1.html(question.num1);
+      $num2.html(question.num2);
+      $operation.html(question.operation);
+      $choice1.html(question.choices[0]);
+      $choice2.html(question.choices[1]);
+      $choice3.html(question.choices[2]);
+    }
+
+    var questionNumber = 1;
+
+    // Displays the questions
+    function displayQuestions() {
+      question = createAdditionProblem(3, 0, 10);
+      inputValues(questionNumber, question);
+      $(document).on('keypress', function(event) {
+        keyPressed = event.which;
+        if (keyPressed >= 106 && keyPressed <= 108) {
+          $(document).off('keypress');
+          if ((keyPressed === 106 && question.answer === question.choices[0]) ||
+             (keyPressed === 107 && question.answer === question.choices[1]) ||
+             (keyPressed === 108 && question.answer === question.choices[2])) {
+            if (questionNumber === 4) {
+              // replace image with pokeball
+              questionNumber++;
+              displayQuestions()
+            } else if (questionNumber === 5) {
+              // replace image with pokeball
+              selectView($battleCaught);
+              questionNumber = 1
+            } else {
+              questionNumber++;
+              displayQuestions();
+            }
+          } else {
+            selectView($battleEscaped);
+            questionNumber = 1;
+          }
+        }
+      });
+    }
+
+    startBattle();
+
   });
 
   function startTimer(duration, display) {
