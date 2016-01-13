@@ -11,9 +11,8 @@ class CaughtPokemonsController < ApplicationController
 
   def show
     @caught_pokemon = CaughtPokemon.find(params[:id]);
-    @pokemon = Pokemon.find_by_national_id(params[:id]);
-
-  @pokeData = Pokegem.get_obj "pokemon", @caught_pokemon.pokemon.national_id;
+    @pokemon = Pokemon.find_by_id(@caught_pokemon.pokemon_id);
+    
 
 
   end
