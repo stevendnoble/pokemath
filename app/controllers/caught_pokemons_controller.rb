@@ -2,10 +2,10 @@ class CaughtPokemonsController < ApplicationController
   def create
     @caught_pokemon = CaughtPokemon.new(caught_pokemon_params)
     if @caught_pokemon.save
-      redirect_to user_path(current_user)
+      redirect_to map_path
     else
       flash[:error] = @caught_pokemon.errors.full_messages.join(', ')
-      redirect_to root_path
+      redirect_to map_path
     end
   end
 
