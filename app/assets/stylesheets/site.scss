@@ -43,7 +43,6 @@ body {
 // Styling for gamemap
 .game-tile {
   background-color: green;
-/*  border: 1px solid white;*/
   padding: 0;
   background-image: url('grass.png');
   background-size: cover;
@@ -67,24 +66,12 @@ body {
   background-size: cover; 
 }
 
-/*#game-map,
-#ash {
-  position:absolute;
-}
-
-#ash {
-  margin-left:5px;
-  z-index: 10;
-}*/
-
 // Styling for battle screen
 #battle-screen {
   background-color: yellow;
-  border: 3px solid gold;
 }
 
 #game-map {
-  border: 3px solid gold;
 }
 
 #map-toggle {
@@ -96,15 +83,8 @@ img {
 }
 
 #ash {
-/*  height: 60%;
-  width: 60%;*/
   position: absolute;
   z-index: 9000;
-/*  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;*/
 }
 
 .outer-container {
@@ -207,6 +187,27 @@ video {
   color: $pokered;
 }
 
-.show-grid {
-  border: 1px solid black;
+
+// .show-grid {
+//   border: 1px solid black;
+// }
+
+.about {
+  
+  background-image:url("http://nice-cool-pics.com/data/media/7/pokemon_-_ash_and_pikachu.jpg");
+  background-size: cover;
+  font-family: 'Francois One', sans-serif;
+  font-size: 30px;
+  color: #2684FF;
+   
+
 }
+
+#mission {
+  width: 50%;
+  padding-top: 100px;
+  padding-left: 50px;
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+}
+

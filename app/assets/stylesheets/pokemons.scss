@@ -1,25 +1,32 @@
-// .battle-toggle {
-//   display: none;
-// }
-
 #choose-you {
   display: none;
 }
 
-// .progress {
-//   margin-top: 60px;
-// }
+.pokemon-status {
+  margin-top: 20px;
+}
+
+#hp {
+  width: 100%;
+}
 
 // Styling for battle screen
 #battle-screen {
-  background-color: yellow;
-  border: 3px solid gold;
+  background-color: white;
 }
 
 #game-map {
-  border: 3px solid gold;
+  margin: 0 auto;
 }
 
 img {
   width: 100%;
+}
+
+body {
+  background-color: #FFFF99;
+}
+
+.navbar-default {
+  background-color: red;
 }

@@ -1,5 +1,3 @@
-$(document).ready(function() {
-
 function randDigit(min, max) {
 	return Math.floor(Math.random() * (max-min + 1) + min);
 }
@@ -35,6 +33,7 @@ function createAdditionProblem(numPossibleSolutions, minDigit, maxDigit) {
 		} while ((possibleSolution <= Math.max(num1, num2)) || (possibleSolutions.indexOf(possibleSolution) != -1));
 		possibleSolutions.push(possibleSolution);
 	}
+	possibleSolutions = randomizeArray(possibleSolutions);
 	return {num1: num1, num2: num2, operation: '+', answer: sum, choices: possibleSolutions};
 }
 
@@ -61,6 +60,7 @@ function createSubtractionProblem(numPossibleSolutions, minDigit, maxDigit) {
 		} while ((possibleSolution >= Math.max(num1, num2)) || (possibleSolution < 0) || (possibleSolutions.indexOf(possibleSolution) != -1));
 		possibleSolutions.push(possibleSolution);
 	}
+	possibleSolutions = randomizeArray(possibleSolutions);
 	return {num1: num1, num2: num2, operation: '-', answer: difference, choices: possibleSolutions};
 }
 
@@ -85,6 +85,7 @@ function createMultiplicationProblem(numPossibleSolutions, minDigit, maxDigit) {
 			possibleSolutions.push(possibleSolution);
 		}
 	}
+	possibleSolutions = randomizeArray(possibleSolutions);
 	return {num1: num1, num2: num2, operation: String.fromCharCode(215), answer: product, choices: possibleSolutions};
 }
 
@@ -105,7 +106,6 @@ function createSimpleDivisionProblem(numPossibleSolutions) {
 			possibleSolutions.push(possibleSolution);
 		}
 	}
+	possibleSolutions = randomizeArray(possibleSolutions);
 	return {num1: num1, num2: num2, operation: String.fromCharCode(247), answer: quotient, choices: possibleSolutions};
 }
-
-});
