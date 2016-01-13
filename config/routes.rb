@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
 
+  get "/about", to: "site#about"
   get "/map", to: "site#map"
   get "/battle", to: "pokemon#show"
   post "/mapstate", to: "mapstates#create"
