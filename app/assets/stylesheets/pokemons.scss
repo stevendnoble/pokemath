@@ -1,25 +1,71 @@
-// .battle-toggle {
-//   display: none;
-// }
+// Battle page font
+@font-face {
+    font-family: 'pokemon_gbregular';
+    src: url('pokemon_gb.eot');
+    src: url('pokemon_gb.eot?#iefix') format('embedded-opentype'),
+         url('pokemon_gb.woff2') format('woff2'),
+         url('pokemon_gb.woff') format('woff'),
+         url('pokemon_gb.ttf') format('truetype'),
+         url('pokemon_gb.svg#pokemon_gbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
+}
 #choose-you {
   display: none;
 }
 
-// .progress {
-//   margin-top: 60px;
-// }
+.pokemon-status {
+  margin-top: 20px;
+}
+
+#hp {
+  width: 100%;
+}
 
 // Styling for battle screen
 #battle-screen {
-  background-color: yellow;
-  border: 3px solid gold;
+  font-family: 'pokemon_gbregular';
+  background-image: url('grass.png');
 }
+
 
 #game-map {
-  border: 3px solid gold;
+  margin: 0 auto;
 }
 
-img {
-  width: 100%;
+.battle-toggle {
+  padding: 40px;
 }
+
+.well {
+  padding: 20px;
+  margin: 0px;
+  background-color: rgba(256, 256, 256, 0.3);
+  border: 1px solid black;
+  border-radius: 0px;
+}
+
+// Timer
+  #timer {
+    visibility: hidden;
+  }
+
+  #hidden-timer {
+    display: none;
+  }
+
+  .blink {
+    -webkit-animation: blink 1s linear infinite;
+    -moz-animation: blink .75s linear infinite;
+    -ms-animation: blink .75s linear infinite;
+    -o-animation: blink .75s linear infinite;
+     animation: blink 1s linear infinite;
+  }
+
+  @-webkit-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+  }

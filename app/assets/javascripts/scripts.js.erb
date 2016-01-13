@@ -1,5 +1,7 @@
 var resizeTimer;
 
+var baseUrl = 'http://localhost:3000/'
+
 // Checks the size of the browser and alerts the user if
 // window is too small to view
 function browserTooSmall() {
@@ -11,7 +13,7 @@ function browserTooSmall() {
     var winHeight = $(window).height();
 
     if ((winWidth < 640) || (winHeight < 480)) {
-      alert("Window size too small!");
+      alert('Window size too small!');
     }
   }, 500);
 }

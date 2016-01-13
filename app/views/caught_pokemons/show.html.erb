@@ -1,0 +1,40 @@
+
+<%= link_to 'Back to your Pokedex', user_path(current_user), class: "btn btn-default" %>
+<div class="row">
+  <div class="col-md-8 pokeImage">
+    <%= image_tag "pokemon/" + @pokemon.sprite, class: "image-responsive" %>
+  </div>
+
+  <div class="col-md-4"> 
+     <h1><%= @caught_pokemon.name %> <small><%= @pokemon.species %></small></h1>
+     <h4>Caught <%= time_ago_in_words(@caught_pokemon.created_at)%> ago</h4>
+    <table class="pokeInfo table">
+      <tr>
+        <td><strong>Type: </strong></td>
+        <td><%= @pokemon.pokemon_type1.titleize %></td>
+      </tr> 
+      <tr>
+        <td><strong>Attack: </strong></td>
+        <td><%= @pokemon.attack %></td>
+      </tr> 
+      <tr>
+        <td><strong>Defense: </strong></td>
+        <td><%= @pokemon.defense %></td>
+      </tr>
+      <tr>
+        <td><strong>SP Attack: </strong></td>
+        <td><%= @pokemon.sp_attack %></td>
+      </tr> 
+      <tr>
+        <td><strong>SP Defense: </strong></td>
+        <td><%= @pokemon.sp_defense %></td>
+      </tr>
+      <tr>  
+        <td><strong>Speed: </strong></td>
+        <td><%= @pokemon.speed %></td>
+      </tr>   
+    </table>
+  </div> 
+</div>
+ 
+    

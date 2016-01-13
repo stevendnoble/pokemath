@@ -1,0 +1,82 @@
+// Font for use on navbar and the logo on the splash page
+  $pokered: #E3350D; 
+
+  // pokefont
+  @font-face {
+      font-family: 'pokemon_solidnormal';
+      src: url('pokemon_solid.eot');
+      src: url('pokemon_solid.eot?#iefix') format('embedded-opentype'),
+           url('pokemon_solid.woff2') format('woff2'),
+           url('pokemon_solid.woff') format('woff'),
+           url('pokemon_solid.ttf') format('truetype'),
+           url('pokemon_solid.svg#pokemon_solidnormal') format('svg');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+// Prevents scrolling on the page
+  body, 
+  html {
+    height: 100%;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  div.wrapper {
+    height: 100%;
+    overflow: hidden;
+  }
+
+// Styling for navbar
+  body {
+    margin-top: 70px;
+  }
+
+//playing around with navbar color
+  .navbar-header a.navbar-brand {
+    font-family: 'pokemon_solidnormal';
+    letter-spacing: 2px;
+    font-size: 20px;
+    color: white;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+  }
+  .navbar-header a.navbar-brand:hover, 
+  .navbar-header a.navbar-brand:focus {
+    color: lightyellow;
+  }
+
+  #bs-navbar ul.nav > li a {
+    font-family: 'pokemon_solidnormal';
+    letter-spacing: 2px;
+    font-size: 20px;
+    color: white;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+  }
+  #bs-navbar ul.nav > li a:hover,
+  #bs-navbar ul.nav > li a:focus {
+    // color: $pokered;
+    color: lightyellow;
+  }
+
+  .navbar-default {
+    // border-color: rgba(35,35,35,.05);
+    // background-color: transparent;
+    background-color: $pokered;
+    border-color: $pokered;
+  }
+
+// General styling for the pages
+  img {
+    width: 100%;
+  }
+  
+  body {
+    background-color: #FFFF99;
+  }
+
