@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $(".pokemons.show").ready(function() {
+  $('.pokemons.show').ready(function() {
 
     var $battleEncounter = $('#battle-encounter'),
         $battleQuestions = $('#battle-questions'),
@@ -14,7 +14,9 @@ $(document).ready(function() {
         $battlePokemon = $('.battle-pokemon'),
         $chooseYou = $('#choose-you'),
         $answerChoice = $('#answer-choice'),
-        $pokemonNameField = $('#pokemon-name-field');
+        $pokemonNameField = $('#pokemon-name-field'),
+        $hiddenTimer = $('#hidden-timer'),
+        $timer = $('#timer');
 
     var $problemNumber = $('#problem-number'),
         $num1 = $('#num1'),
@@ -23,6 +25,9 @@ $(document).ready(function() {
         $choice1 = $('#choice1'),
         $choice2 = $('#choice2'),
         $choice3 = $('#choice3');
+
+    var questionNumber = 1;
+    var pokemonTemp = $battlePokemon.attr('src');
 
     var keyPressed;
     var questions;
@@ -40,7 +45,6 @@ $(document).ready(function() {
       $battleToggle.hide();
       selector.show();
     }
-
 
     // Displays the questions
     function displayQuestions() {
@@ -100,24 +104,29 @@ $(document).ready(function() {
 
             }
           } else {
-            selectView($battleEscaped);
-            questionNumber = 1;
-            $battlePokemon.attr('src', pokemonTemp);
-            $(document).on('keypress', function(event) {
-              keyPressed = event.which;
-              if (keyPressed === 32) {
-                $(document).off('keypress');
-                window.location.href = baseUrl + '/map';
-              }
-            })
+            pokemonEscaped();
           }
         }
       });
     }
 
+    function pokemonEscaped() {
+      selectView($battleEscaped);
+      questionNumber = 1;
+      $battlePokemon.attr('src', pokemonTemp);
+      $(document).on('keypress', function(event) {
+        keyPressed = event.which;
+        if (keyPressed === 32) {
+          $(document).off('keypress');
+          window.location.href = baseUrl + '/map';
+        }
+      })      
+    }
+
     // Opens up the battle questions view
     function startBattle() {
       selectView($battleEncounter);
+      startTimer($hiddenTimer.text().toString(), $timer)
       $(document).on('keypress', function(event) {
         keyPressed = event.which;
         if (keyPressed === 32) {
@@ -140,38 +149,30 @@ $(document).ready(function() {
       $choice3.html(question.choices[2]);
     }
 
-    var questionNumber = 1;
-    var pokemonTemp = $battlePokemon.attr('src');
-
+    function startTimer(duration, display) {
+      var timer = duration;
+      var seconds;
+      var interval = setInterval(function () {
+        seconds = timer;
+        if(seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        display.text("0:" + seconds);
+        //Auto resets timer once reaches 0. 
+        //If need to reset, funct clearInterval. setInterval return value as parameter. 
+        timer--;
+        if (timer < 10) {
+          $timer.css('visibility', 'visible');
+        }
+        if (timer < 0) {
+          //timer = duration;
+          clearInterval(interval);
+          $timer.css('visibility', 'hidden');
+          pokemonEscaped();
+        }
+      }, 1000);
+    }
 
     startBattle();
-
   });
-
-  function startTimer(duration, display) {
-    var timer = duration;
-    var seconds;
-    var interval = setInterval(function () {
-      seconds = timer;
-      if(seconds < 10) {
-        seconds = "0" + seconds;
-      }
-      display.text("0:" + seconds);
-      //Auto resets timer once reaches 0. 
-      //If need to reset, funct clearInterval. setInterval return value as parameter. 
-      if (--timer < 0) {
-        //timer = duration;
-        clearInterval(interval);
-      }
-    }, 1000);
-  }
-
-  // jQuery(function ($) {
-  //    var fiveMinutes = 60 * 5,
-  //        tenSeconds = 10,
-  //        display = $('#time');
-  //    startTimer(tenSeconds, display);
-  // });
-
-
 });
