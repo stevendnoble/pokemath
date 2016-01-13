@@ -120,20 +120,21 @@ $pokered: #E3350D;
   #video-background.collapsing {
     display:none;
   }
-
-// Styling for about page
+  
   .about {
-    background-image:url("http://nice-cool-pics.com/data/media/7/pokemon_-_ash_and_pikachu.jpg");
+    
+    background-image:url("http://images.alphacoders.com/235/235203.png");
     background-size: cover;
     font-family: 'Francois One', sans-serif;
-    font-size: 30px;
-    color: #2684FF;
+    font-size: 25px;
+    color: #11C8E3;
+     
   }
-
+  .pokedex-image {
+    height: 50%;
+  }
   #mission {
     width: 50%;
     padding-top: 100px;
     padding-left: 50px;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
   }
