@@ -35,7 +35,6 @@
   }
 
 //playing around with navbar color
-
   .navbar-header a.navbar-brand {
     font-family: 'pokemon_solidnormal';
     letter-spacing: 2px;
@@ -60,7 +59,7 @@
     transition: all .4s;
   }
   #bs-navbar ul.nav > li a:hover,
-   #bs-navbar ul.nav > li a:focus {
+  #bs-navbar ul.nav > li a:focus {
     // color: $pokered;
     color: lightyellow;
   }

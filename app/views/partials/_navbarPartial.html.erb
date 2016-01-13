@@ -7,7 +7,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand " href="#first"><i class="ion-pound"></i> pokemath</a>
+      <a class="navbar-brand " href="/map"><i class="ion-pound"></i> pokemath</a>
     </div>
     <div class="navbar-collapse collapse" id="bs-navbar">
       <ul class="nav navbar-nav pull-right">
@@ -16,14 +16,17 @@
              <%= link_to "PokéDex", user_path(current_user) %>
           </li>
           <li> 
-            <%= link_to 'Logout', '/logout' %>
+            <%= link_to "Logout", "/logout" %>
+          </li>
+          <li>
+            <%= link_to "About", "/about" %>
           </li>
         <% else %>
           <li>
-            <%= link_to 'Login', '/login' %> 
+            <%= link_to "Login", "/login" %> 
           </li>
           <li> 
-            <%= link_to 'Signup', '/signup' %>
+            <%= link_to "Signup", "/signup" %>
           </li>
     <% end %>
   </ul>
