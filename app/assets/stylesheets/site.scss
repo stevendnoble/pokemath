@@ -67,16 +67,6 @@ body {
   background-size: cover; 
 }
 
-/*#game-map,
-#ash {
-  position:absolute;
-}
-
-#ash {
-  margin-left:5px;
-  z-index: 10;
-}*/
-
 // Styling for battle screen
 #battle-screen {
   background-color: yellow;
@@ -96,15 +86,8 @@ img {
 }
 
 #ash {
-/*  height: 60%;
-  width: 60%;*/
   position: absolute;
   z-index: 9000;
-/*  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;*/
 }
 
 .outer-container {
