@@ -10,7 +10,7 @@
       <a class="navbar-brand " href="/map"><i class="ion-pound"></i> pokemath</a>
     </div>
     <div class="navbar-collapse collapse" id="bs-navbar">
-      <ul class="nav navbar-nav pull-right">
+      <ul class="nav navbar-nav ">
         <% if current_user %>
           <li>
              <%= link_to "PokéDex", user_path(current_user) %>
@@ -28,8 +28,27 @@
           <li> 
             <%= link_to "Signup", "/signup" %>
           </li>
-    <% end %>
-  </ul>
-</div>
-</div>
+        <% end %>
+      </ul>      <ul class="nav navbar-nav pull-right">
+        <% if current_user %>
+          <li>
+             <%= link_to "PokéDex", user_path(current_user) %>
+          </li>
+          <li> 
+            <%= link_to "Logout", "/logout" %>
+          </li>
+          <li>
+            <%= link_to "About", "/about" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Login", "/login" %> 
+          </li>
+          <li> 
+            <%= link_to "Signup", "/signup" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </nav>

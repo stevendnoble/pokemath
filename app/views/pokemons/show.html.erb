@@ -14,7 +14,7 @@
       <div class="row"> <!-- timer -->
         <div class="col-xs-12">
           <h1 id="hidden-timer"><%= @pokemon.catch_rate / 10 %></h1>
-          <h1 class="text-center" id="timer"></h1>
+          <h1 class="text-center blink" id="timer"></h1>
           <br>
         </div>
       </div>
@@ -83,7 +83,7 @@
     <div class="col-xs-4"> <!-- pokemon -->
       <div class="row"> <!-- progress bar -->
         <div class="col-xs-12 pokemon-status">
-          <p><%= @pokemon.species.upcase %> LV<%= rand(50) %></p>
+          <p><%= @pokemon.species.upcase %> <span class="pull-right"><strong><i class="<% if rand(2) == 1 %>ion-male<% else %>ion-female<% end %>"></i></strong>&nbsp;LV<%= rand(50) %></span></p>
           <div class="progress">
             <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" id="hp">
             </div>
@@ -100,23 +100,6 @@
           <h1>I choose you, <span id="answer-choice"></span>!</h1>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row directions"> <!-- Directions -->
-    <div class="col-xs-6">
-      <div>
-      <h4>How to play:</h4>
-      <p>
-        <i class="ion-arrow-left-b"></i>
-        <i class="ion-arrow-down-b"></i>
-        <i class="ion-arrow-right-b"></i>
-        &nbsp;&nbsp;Use the arrow keys to select an answer
-      </p>
-      </div>
-    </div>
-    <div class="col-xs-6">
-      <h4>What to do</h4>
-      <p>Answer all five questions before the timer runs out to catch a new pokemon!</p>
     </div>
   </div>
 </div>
