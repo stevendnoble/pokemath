@@ -13,7 +13,8 @@ $(document).ready(function() {
     var $hp = $('#hp'),
         $battlePokemon = $('.battle-pokemon'),
         $chooseYou = $('#choose-you'),
-        $answerChoice = $('#answer-choice');
+        $answerChoice = $('#answer-choice'),
+        $pokemonNameField = $('#pokemon-name-field');
 
     var $problemNumber = $('#problem-number'),
         $num1 = $('#num1'),
@@ -46,6 +47,7 @@ $(document).ready(function() {
       question = createAdditionProblem(3, 0, 10);
       inputValues(questionNumber, question);
       $(document).on('keypress', function(event) {
+        event.preventDefault();
         keyPressed = event.which;
         if (keyPressed >= 106 && keyPressed <= 108) {
           $(document).off('keypress');
@@ -93,12 +95,21 @@ $(document).ready(function() {
             } else {
               // replace image with pokeball
               selectView($battleCaught);
+              $pokemonNameField.focus();
               questionNumber = 1
+
             }
           } else {
             selectView($battleEscaped);
             questionNumber = 1;
-            $battlePokemon.attr('src', pokemonTemp); 
+            $battlePokemon.attr('src', pokemonTemp);
+            $(document).on('keypress', function(event) {
+              keyPressed = event.which;
+              if (keyPressed === 32) {
+                $(document).off('keypress');
+                window.location.href = baseUrl + '/map';
+              }
+            })
           }
         }
       });
