@@ -87,7 +87,12 @@ $(document).ready(function() {
           }
         }
       }
+      // if (savedstate) {
+      //   restoresavedstate
+      //   placePokemon(1)
+      // } else {
       placePokemon(5);
+      // }
     }
     setMap();
 
@@ -154,6 +159,7 @@ $(document).ready(function() {
         key[keyPressed].direction(ashPos, $('#ash'))
       } else if (typeof key[keyPressed].position(ashPos) === 'number') {
         url = "pokemons/" + key[keyPressed].position(ashPos)
+        // key[keyPressed].position(ashPos) = 0; // remove pokemon from the map
         $(document).off('keypress');
         window.location.href = url; 
       }

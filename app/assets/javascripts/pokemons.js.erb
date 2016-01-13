@@ -50,6 +50,7 @@ $(document).ready(function() {
 
     // Inputs the values of the question on the html page    
     function inputValues(questionNumber, question) {
+      console.log(questionNumber)
       $problemNumber.html(questionNumber);
       $num1.html(question.num1);
       $num2.html(question.num2);
@@ -62,47 +63,38 @@ $(document).ready(function() {
     var questionNumber = 1;
 
     // Displays the questions
-    function displayQuestions(questionNumber) {
+    function displayQuestions() {
       question = createAdditionProblem(3, 0, 10);
       inputValues(questionNumber, question);
       $(document).on('keypress', function(event) {
         keyPressed = event.which;
         if (keyPressed >= 106 && keyPressed <= 108) {
+          $(document).off('keypress');
           if ((keyPressed === 106 && question.answer === question.choices[0]) ||
              (keyPressed === 107 && question.answer === question.choices[1]) ||
              (keyPressed === 108 && question.answer === question.choices[2])) {
             if (questionNumber === 4) {
               // replace image with pokeball
-              displayQuestions(questionNumber++)
+              questionNumber++;
+              displayQuestions()
             } else if (questionNumber === 5) {
               // replace image with pokeball
               selectView($battleCaught);
+              questionNumber = 1
             } else {
-              displayQuestions(questionNumber++);
+              questionNumber++;
+              displayQuestions();
             }
           } else {
             selectView($battleEscaped);
+            questionNumber = 1;
           }
         }
       });
     }
 
-    function checkAnswer(keyPressed, question) {
-      return 
-    }
-
-    $(document).on('keypress', function(event) {
-      keyPressed = event.which;
-      if ([97, 100, 115, 106, 107, 108].indexOf(keyPressed) !== -1) {
-        pressKey(keyPressed);
-      }
-    });
-
-
-
     startBattle();
 
-    
   });
 
   function startTimer(duration, display) {
