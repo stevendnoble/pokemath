@@ -114,10 +114,14 @@ img {
 // landing page video
 
 header h1 {
+  font-family: 'pokemon_solidnormal';
+  letter-spacing: 2px;
   color: white;
   margin-top: 12%;
 }
 header h4 {
+  font-family: 'pokemon_solidnormal';
+  letter-spacing: 2px;
   color: white;
   margin-top: 10px;
 }
@@ -145,7 +149,18 @@ video {
   z-index: -100;
   visibility: visible;
 }
+.btn-landing {
+  letter-spacing: 1px;
+  font-weight: 100;
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  transition: all .4s; 
+}
+.btn-landing:hover {
+  background-color: $pokered;
+  border-color: $pokered;
 
+}
 #video-background.collapsing {
   display:none;
 }
@@ -158,6 +173,9 @@ video {
 }
 
 .navbar-header a.navbar-brand {
+  font-family: 'pokemon_solidnormal';
+  letter-spacing: 2px;
+  font-size: 20px;
   color: white;
   -webkit-transition: all .4s;
   -moz-transition: all .4s;
@@ -181,5 +199,6 @@ video {
  #bs-navbar ul.nav > li a:focus {
   color: $pokered;
 }
+
 
 
