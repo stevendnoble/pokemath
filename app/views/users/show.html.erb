@@ -6,6 +6,8 @@
       </h1>
       <div class="col-xs-6 col-xs-offset-3 show-grid">
         <%= image_tag ("/assets/ash/ash.png"), class:"img-responsive img-thumbnail" %>
+        <h3 class="text-center"><%= @user.username %></h3>
+        <h3 class="text-center">Date joined: <%= @user.created_at.strftime("%b %d, %Y") %></h3>
       </div>
 
     </div>
