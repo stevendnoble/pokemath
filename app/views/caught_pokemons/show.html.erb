@@ -2,23 +2,21 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8"></div>
-    <div class=" col-md-4  panel panel-default">
-      <div class="panel-head">
-        Pokemon Name: <strong><%= @caught_pokemon.name %></strong>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= @caught_pokemon.name %></h3>
+          </div>
+          <div class="panel-body">
+            <%= @pokemon.species %>
+          </div>
+        </div>  
       </div>
-      <div class="panel-body">
-      Pokemon: <strong><%= @pokemon.species %></strong>
-      </div>
-    
-</div>
   <div class="col-md-6 col-md-offset-3">
-  <div class="col-s-6 col-md-3">
-      <%= image_tag "pokemon/" + @pokemon.sprite, class: "thumbnail"%>
-      <h4>Pokemon: <%= @pokemon.species%></h4>
-  </div>
-    
-      
-      
+    <div class="col-s-6 col-md-3">
+        <%= image_tag "pokemon/" + @pokemon.sprite, class: "thumbnail"%>
+        <h4>Pokemon: <%= @pokemon.species%></h4>
+    </div>
   </div>
   <div class= "col-md-6 col-md-offset-3">
     <ul>  
