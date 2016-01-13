@@ -1,3 +1,39 @@
-<% @user.pokemons.each do |poke| %>
-<%= poke.species %>
-<% end %>
+<div class="container show-grid">
+  <div class="row show-grid">
+    <div class="col-xs-6 show-grid">
+      <h1 class="btn btn-block show-grid">
+        this is a button
+      </h1>
+      <div class="col-xs-6 col-xs-offset-3 show-grid">
+        <%= image_tag ("/assets/ash/ash.png"), class:"img-responsive img-thumbnail" %>
+        <h3 class="text-center"><%= @user.username %></h3>
+        <h3 class="text-center">Date joined: <%= @user.created_at.strftime("%b %d, %Y") %></h3>
+      </div>
+
+    </div>
+    <div class="col-xs-6 show-grid">
+      <h1 class=" btn btn-block show-grid">
+        stats
+      </h1>
+      <div class="row show-grid">
+        <ul class="nav nav-tabs" role="tablist">
+          <li><a href="#caughtPokemon" role="tab" data-toggle="tab">Caught Pokemon</a></li>
+          <li><a href="#playerStat" role="tab" data-toggle="tab">Player Stats</a></li>
+        </ul>
+        <div class="tab-content">
+
+          <div class="tab-pane container" id="caughtPokemon">
+            <h1>Enslaved Pokemon</h1>
+            <% @user.pokemons.each do |pokemon| %>
+              <h4><%= pokemon.species %> <small><%= pokemon.catch_rate %></small></h4>
+            <% end %>
+          </div>
+          <div class="tab-pane container" id="playerStat">
+            <h1>Player stats</h1>
+            <h4>Caught Pokemon: <%= @user.pokemons.size %> </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
