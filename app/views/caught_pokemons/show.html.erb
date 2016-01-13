@@ -1,40 +1,40 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8"></div>
-    <div class=" col-md-4  panel panel-default">
-      <div class="panel-head">
-        Pokemon Name: <strong><%= @caught_pokemon.name %></strong>
-      </div>
-      <div class="panel-body">
-      Pokemon: <strong><%= @pokemon.species %></strong>
-      </div>
-    
-</div>
-  <div class="col-md-6 col-md-offset-3">
-  <div class="col-s-6 col-md-3">
-      <%= image_tag "pokemon/" + @pokemon.sprite, class: "thumbnail"%>
-      <h4>Pokemon: <%= @pokemon.species%></h4>
+<%= link_to 'Back to your Pokedex', user_path(current_user), class: "btn btn-default" %>
+<div class="row">
+  <div class="col-md-8 pokeImage">
+    <%= image_tag "pokemon/" + @pokemon.sprite, class: "image-responsive" %>
   </div>
-    
-      
-      
-  </div>
-  <div class= "col-md-6 col-md-offset-3">
-    <ul>  
-      <li>Attack from gem: <strong><%= @pokemon.attack %></strong></li>
-      <li>Attack from our db: <strong><%= @pokemon.attack %></strong></li>
-      <li><strong>Defense: </strong> <%= @pokemon.defense %></li>
-      <li><strong>SP Attack: </strong><%= @pokemon.sp_attack %></li>
-      <li><strong>SP Defense: </strong><%= @pokemon.sp_defense %></li>
-      <li><strong>Catch Rate: </strong><%= @pokemon.catch_rate %></li>
-      <li><strong>Species: </strong><%= @pokemon.species %></li>
-      <li><strong>Speed: </strong><%= @pokemon.speed %></li>
-      <li><%= time_ago_in_words(@pokemon.created_at)%></li>
-     
-    </ul>  
-  </div>
-  </div>
-</div>
-<!--  -->
 
+  <div class="col-md-4"> 
+     <h1><%= @caught_pokemon.name %> <small><%= @pokemon.species %></small></h1>
+     <h4>Caught <%= time_ago_in_words(@caught_pokemon.created_at)%> ago</h4>
+    <table class="pokeInfo table">
+      <tr>
+        <td><strong>Type: </strong></td>
+        <td><%= @pokemon.pokemon_type1.titleize %></td>
+      </tr> 
+      <tr>
+        <td><strong>Attack: </strong></td>
+        <td><%= @pokemon.attack %></td>
+      </tr> 
+      <tr>
+        <td><strong>Defense: </strong></td>
+        <td><%= @pokemon.defense %></td>
+      </tr>
+      <tr>
+        <td><strong>SP Attack: </strong></td>
+        <td><%= @pokemon.sp_attack %></td>
+      </tr> 
+      <tr>
+        <td><strong>SP Defense: </strong></td>
+        <td><%= @pokemon.sp_defense %></td>
+      </tr>
+      <tr>  
+        <td><strong>Speed: </strong></td>
+        <td><%= @pokemon.speed %></td>
+      </tr>   
+    </table>
+  </div> 
+</div>
+ 
+    
