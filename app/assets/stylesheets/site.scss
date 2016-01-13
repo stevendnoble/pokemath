@@ -43,7 +43,6 @@ body {
 // Styling for gamemap
 .game-tile {
   background-color: green;
-/*  border: 1px solid white;*/
   padding: 0;
   background-image: url('grass.png');
   background-size: cover;
@@ -70,11 +69,9 @@ body {
 // Styling for battle screen
 #battle-screen {
   background-color: yellow;
-  // border: 3px solid gold;
 }
 
 #game-map {
-  border: 3px solid gold;
 }
 
 #map-toggle {
