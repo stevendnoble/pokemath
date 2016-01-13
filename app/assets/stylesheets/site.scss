@@ -115,9 +115,15 @@ img {
 
 header h1 {
   font-family: 'pokemon_solidnormal';
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   color: white;
+  font-size: 80px;
   margin-top: 12%;
+  margin-bottom: 30px;
+}
+sub.big-p {
+  font-size: 1.7em;
+  vertical-align: sub;
 }
 header h4 {
   font-family: 'pokemon_solidnormal';
@@ -150,6 +156,8 @@ video {
   visibility: visible;
 }
 .btn-landing {
+  background-color: $pokered;
+  border-color: $pokered;
   letter-spacing: 1px;
   font-weight: 100;
   -webkit-transition: all .4s;
@@ -157,9 +165,8 @@ video {
   transition: all .4s; 
 }
 .btn-landing:hover {
-  background-color: $pokered;
-  border-color: $pokered;
-
+  background-color: #D2250D;
+  border-color: #D2250D
 }
 #video-background.collapsing {
   display:none;
