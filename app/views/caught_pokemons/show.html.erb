@@ -1,0 +1,40 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8"></div>
+    <div class=" col-md-4  panel panel-default">
+      <div class="panel-head">
+        Pokemon Name: <strong><%= @caught_pokemon.name %></strong>
+      </div>
+      <div class="panel-body">
+      Pokemon: <strong><%= @pokemon.species %></strong>
+      </div>
+    
+</div>
+  <div class="col-md-6 col-md-offset-3">
+  <div class="col-s-6 col-md-3">
+      <%= image_tag "pokemon/" + @pokemon.sprite, class: "thumbnail"%>
+      <h4>Pokemon: <%= @pokemon.species%></h4>
+  </div>
+    
+      
+      
+  </div>
+  <div class= "col-md-6 col-md-offset-3">
+    <ul>  
+      <li>Attack from gem: <strong><%= @pokemon.attack %></strong></li>
+      <li>Attack from our db: <strong><%= @pokemon.attack %></strong></li>
+      <li><strong>Defense: </strong> <%= @pokemon.defense %></li>
+      <li><strong>SP Attack: </strong><%= @pokemon.sp_attack %></li>
+      <li><strong>SP Defense: </strong><%= @pokemon.sp_defense %></li>
+      <li><strong>Catch Rate: </strong><%= @pokemon.catch_rate %></li>
+      <li><strong>Species: </strong><%= @pokemon.species %></li>
+      <li><strong>Speed: </strong><%= @pokemon.speed %></li>
+      <li><%= time_ago_in_words(@pokemon.created_at)%></li>
+     
+    </ul>  
+  </div>
+  </div>
+</div>
+<!--  -->
+
