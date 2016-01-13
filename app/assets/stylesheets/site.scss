@@ -170,7 +170,7 @@ video {
 }
 .navbar-header a.navbar-brand:hover, 
 .navbar-header a.navbar-brand:focus {
-  color: $pokered;
+  color: #E5E5E5;
 }
 
 #bs-navbar ul.nav > li a {
@@ -184,14 +184,15 @@ video {
 }
 #bs-navbar ul.nav > li a:hover,
  #bs-navbar ul.nav > li a:focus {
-  color: $pokered;
+  color: #E5E5E5;
 }
 
 
-// .show-grid {
-//   border: 1px solid black;
-// }
+.show-grid {
+  border: 1px solid black;
+}
 
+//about page styling//
 .about {
   
   background-image:url("http://nice-cool-pics.com/data/media/7/pokemon_-_ash_and_pikachu.jpg");
