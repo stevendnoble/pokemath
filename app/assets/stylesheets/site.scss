@@ -13,202 +13,123 @@ $pokered: #E3350D;
     font-style: normal;
 
 }
-// Prevents scrolling on the page
-body, 
-html {
-  height: 100%;
-}
-
-body {
-  overflow: hidden;
-}
-
-div.wrapper {
-  height: 100%;
-  overflow: hidden;
-}
-
-// Styling for navbar
-body {
-  margin-top: 70px;
-}
-
-// Styling for gamescreen
-.game-screen {
-}
-
-.directions {
-}
 
 // Styling for gamemap
-.game-tile {
-  background-color: green;
-  padding: 0;
-  background-image: url('grass.png');
-  background-size: cover;
-}
+  .game-tile {
+    background-color: green;
+    padding: 0;
+    background-image: url('grass.png');
+    background-size: cover;
+  }
 
-.o1 {
-  // obstacle 1
-  background-image: url('tree.png'); 
-  background-size: cover; 
-}
+  .o1 {
+    // obstacle 1
+    background-image: url('tree.png'); 
+    background-size: cover; 
+  }
 
-.o2 {
-  // obstacle 2
-  background-image: url('stump.png');  
-  background-size: cover; 
-}
+  .o2 {
+    // obstacle 2
+    background-image: url('stump.png');  
+    background-size: cover; 
+  }
 
-.o3 {
-  // obstacle 3
-  background-image: url('log.png');  
-  background-size: cover; 
-}
+  .o3 {
+    // obstacle 3
+    background-image: url('log.png');  
+    background-size: cover; 
+  }
 
-// Styling for battle screen
-#battle-screen {
-  background-color: yellow;
-}
+  #ash {
+    position: absolute;
+    z-index: 9000;
+  }
 
-#game-map {
-}
+  .outer-container {
+    padding: 0;
+  }
 
-#map-toggle {
-  /*display: none;*/
-}
+// Styling for landing page
+  header h1 {
+    font-family: 'pokemon_solidnormal';
+    letter-spacing: 2.5px;
+    color: white;
+    font-size: 80px;
+    margin-top: 12%;
+    margin-bottom: 30px;
+  }
 
-img {
-  width: 100%;
-}
+  sub.big-p {
+    font-size: 1.7em;
+    vertical-align: sub;
+  }
 
-#ash {
-  position: absolute;
-  z-index: 9000;
-}
+  header h4 {
+    font-family: 'pokemon_solidnormal';
+    letter-spacing: 2px;
+    color: white;
+    margin-top: 10px;
+  }
 
-.outer-container {
-  padding: 0;
-}
+  header p {
+    margin-top: 30px;
+  }
 
-// landing page video
+  .header-content{
+    background: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    bottom:0;
+    z-index: 200;
+  }
 
-header h1 {
-  font-family: 'pokemon_solidnormal';
-  letter-spacing: 2.5px;
-  color: white;
-  font-size: 80px;
-  margin-top: 12%;
-  margin-bottom: 30px;
-}
-sub.big-p {
-  font-size: 1.7em;
-  vertical-align: sub;
-}
-header h4 {
-  font-family: 'pokemon_solidnormal';
-  letter-spacing: 2px;
-  color: white;
-  margin-top: 10px;
-}
-header p {
-  margin-top: 30px;
-}
-.header-content{
-  background: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  bottom:0;
-  z-index: 200;
-}
-video {
-  position: absolute;
-  top: 0;
-  right: 0; 
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 100%;
-  width: auto; 
-  height: auto;
-  z-index: -100;
-  visibility: visible;
-}
-.btn-landing {
-  background-color: $pokered;
-  border-color: $pokered;
-  letter-spacing: 1px;
-  font-weight: 100;
-  -webkit-transition: all .4s;
-  -moz-transition: all .4s;
-  transition: all .4s; 
-}
-.btn-landing:hover {
-  background-color: #D2250D;
-  border-color: #D2250D
-}
-#video-background.collapsing {
-  display:none;
-}
+  video {
+    position: absolute;
+    top: 0;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
+    visibility: visible;
+  }
 
-//playing around with navbar color
-.navbar-default {
-    border-color: rgba(35,35,35,.05);
-    background-color: transparent;
-    border-color: transparent;
-}
+  .btn-landing {
+    background-color: $pokered;
+    border-color: $pokered;
+    letter-spacing: 1px;
+    font-weight: 100;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s; 
+  }
 
-.navbar-header a.navbar-brand {
-  font-family: 'pokemon_solidnormal';
-  letter-spacing: 2px;
-  font-size: 20px;
-  color: white;
-  -webkit-transition: all .4s;
-  -moz-transition: all .4s;
-  transition: all .4s;
-}
-.navbar-header a.navbar-brand:hover, 
-.navbar-header a.navbar-brand:focus {
-  color: #E5E5E5;
-}
+  .btn-landing:hover {
+    background-color: #D2250D;
+    border-color: #D2250D
+  }
 
-#bs-navbar ul.nav > li a {
-  font-family: 'pokemon_solidnormal';
-  letter-spacing: 2px;
-  font-size: 20px;
-  color: white;
-  -webkit-transition: all .4s;
-  -moz-transition: all .4s;
-  transition: all .4s;
-}
-#bs-navbar ul.nav > li a:hover,
- #bs-navbar ul.nav > li a:focus {
-  color: #E5E5E5;
-}
+  #video-background.collapsing {
+    display:none;
+  }
 
+// Styling for about page
+  .about {
+    background-image:url("http://nice-cool-pics.com/data/media/7/pokemon_-_ash_and_pikachu.jpg");
+    background-size: cover;
+    font-family: 'Francois One', sans-serif;
+    font-size: 30px;
+    color: #2684FF;
+  }
 
-.show-grid {
-  border: 1px solid black;
-}
-
-//about page styling//
-.about {
-  
-  background-image:url("http://nice-cool-pics.com/data/media/7/pokemon_-_ash_and_pikachu.jpg");
-  background-size: cover;
-  font-family: 'Francois One', sans-serif;
-  font-size: 30px;
-  color: #2684FF;
-   
-
-}
-
-#mission {
-  width: 50%;
-  padding-top: 100px;
-  padding-left: 50px;
-  -webkit-text-stroke-width: 1px;
-   -webkit-text-stroke-color: black;
-}
-
+  #mission {
+    width: 50%;
+    padding-top: 100px;
+    padding-left: 50px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
