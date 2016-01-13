@@ -161,10 +161,10 @@ $(document).ready(function() {
         // moveLeft, moveUp, etc.
         key[keyPressed].direction(ashPos, $('#ash'))
       } else if (typeof key[keyPressed].position(ashPos) === 'number') {
-        url = "pokemons/" + key[keyPressed].position(ashPos)
+        url = 'pokemons/' + key[keyPressed].position(ashPos)
         // key[keyPressed].position(ashPos) = 0; // remove pokemon from the map
         $(document).off('keypress');
-        window.location.href = url; 
+        window.location.href = baseUrl + url; 
       }
     });
   });

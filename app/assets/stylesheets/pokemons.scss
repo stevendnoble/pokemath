@@ -38,6 +38,34 @@
   padding: 40px;
 }
 
-#timer {
-  visibility: hidden;
+.well {
+  padding: 20px;
+  margin: 0px;
+  background-color: rgba(256, 256, 256, 0.3);
+  border: 1px solid black;
+  border-radius: 0px;
 }
+
+// Timer
+  #timer {
+    visibility: hidden;
+  }
+
+  #hidden-timer {
+    display: none;
+  }
+
+  .blink {
+    -webkit-animation: blink 1s linear infinite;
+    -moz-animation: blink .75s linear infinite;
+    -ms-animation: blink .75s linear infinite;
+    -o-animation: blink .75s linear infinite;
+     animation: blink 1s linear infinite;
+  }
+
+  @-webkit-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+  }
