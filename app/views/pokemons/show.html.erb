@@ -1,15 +1,22 @@
 <div class="container game-screen">
   <div class="row" id="battle-screen">
     <div class="col-xs-8 battle-toggle" id="battle-encounter">
-      <h1>You've encountered a <%= @pokemon.species %></h1>
+      <h1 class="text-center">You've encountered a <%= @pokemon.species %></h1>
+      <hr>
       <h2>Answer all five questions correctly to catch <%= @pokemon.species %>.</h2>
       <h2>Be sure to answer fast enough, or <%= @pokemon.species %> will run away!</h2>
-      <h2>Press [spacebar] to begin.</h2>
+      <hr>
+      <h2 class="text-center">Press [spacebar] to begin.</h2>
     </div>
     <div class="col-xs-8 battle-toggle" id="battle-questions">
-      <div class="row">
+      <div class="row"> <!-- timer -->
         <div class="col-xs-12">
-          <h1 class="text-center">Problem #<span id="problem-number"></span></h1> <!-- problem# -->
+          <h1 class="text-center">Problem #<span id="problem-number"></span></h1>
+        </div>
+      </div>
+      <div class="row"> <!-- problem# -->
+        <div class="col-xs-12">
+          <h1 class="text-center">Problem #<span id="problem-number"></span></h1>
         </div>
       </div>
       <div class="row"> <!-- question -->
