@@ -1,4 +1,5 @@
 require 'json'
+
 class MapstatesController < ApplicationController
 
   def index

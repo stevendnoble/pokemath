@@ -1,4 +1,6 @@
 class CaughtPokemonsController < ApplicationController
+  before_action :authorize
+  
   def create
     @caught_pokemon = CaughtPokemon.new(caught_pokemon_params)
     if @caught_pokemon.save
