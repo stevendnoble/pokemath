@@ -122,7 +122,7 @@ $pokered: #E3350D;
   }
   
   .about {
-    
+    background-repeat: no-repeat;
     background-image:url("http://images.alphacoders.com/235/235203.png");
     background-size: cover;
     font-family: 'Francois One', sans-serif;
@@ -142,5 +142,17 @@ $pokered: #E3350D;
     position: relative;
     top: -29px;
     left: -10px;
+  }
+  .mute {
+    position: relative;
+    top: 210px;
+    left:-10px;
+    max-height: 30px;
+    max-width: 30px;
+  }
 
+  i.on {
+    color:white;
+    padding: 7px;
+    font-size: 35px;
   }

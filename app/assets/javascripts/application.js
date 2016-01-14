@@ -23,5 +23,18 @@ $(function() {
   new WOW().init();
 
     //mute video
-    // $("video").prop("muted", true);
+    $(".mute").on("click", function(e) {
+      e.preventDefault();
+      $("video").prop("muted", !$("video").prop("muted"))
+    });
+    //change the font on click
+    $("i.on").on("click", function() {
+      if ($(this).hasClass("ion-ios-volume-high")) {
+            $(this).removeClass("ion-ios-volume-high");
+            $(this).addClass("ion-ios-volume-low");
+      } else {
+        $(this).removeClass("ion-ios-volume-low");
+        $(this).addClass("ion-ios-volume-high");
+      }
+    });
 });
