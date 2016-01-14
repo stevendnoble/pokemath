@@ -151,13 +151,13 @@
               </div>
             </div>
           <% end %>
-          <div class="row">
-            <div class="col-xs-3 col-xs-offset-5">
-              <%= link_to 'Release Pokemon', caught_pokemon_path(@caught_pokemon), method: :delete %>
-            </div>
-          </div>            
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs-3 col-xs-offset-3">
+          <%= link_to 'Release Pokemon', caught_pokemon_path(@caught_pokemon), class: "btn btn-warning", method: :destroy %>
+        </div>
+      </div>            
     </div>
   </div>
 </div>
