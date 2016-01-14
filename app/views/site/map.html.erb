@@ -3,7 +3,7 @@
     <% @rows.times do |i| %>
       <div class="row">
         <% @columns.times do |j| %>
-          <div class="col-xs-1 game-tile" data-row"<%= i %>" data-col="<%= j %>" id="r<%= i %>c<%= j %>">
+          <div class="col-xs-1 game-tile" data-row"<%= i+1 %>" data-col="<%= j+1 %>" id="r<%= i+1 %>c<%= j+1 %>">
           </div>
         <% end %>
       </div>
