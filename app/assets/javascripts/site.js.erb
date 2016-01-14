@@ -25,7 +25,9 @@ $(document).ready(function() {
             [ null,  null,  null,  null,  null,  null, 'm3v', 'm3v',  null,  null,  null,  null,  null,  null]
           ],
           'background1': 'grass.png',
-          // 'pokemon1': [1, 2, 3, 4, 5]
+          'pokemon1': [ 1, 2, 3, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 25, 26, 35, 36, 43, 44,
+                        45, 46, 47, 50, 51, 52, 53, 56, 57, 63, 64, 65, 69, 70, 71, 77, 78, 83, 84, 85, 100,
+                        101, 108, 113, 114, 115, 123, 127, 128, 143, 144 ],
           'map2': [
             [ null,  null,  null,  null,  null,  null, 'm4v', 'm4v',  null,  null,  null,  null,  null, null],
             [ null,  'o1',  'w1',  'w5',  'w5',  'w6',     0,     0, 'w4',  'w7',  'w5',  'w5',  'w8',  null],
@@ -37,6 +39,9 @@ $(document).ready(function() {
             [ null,  null,  null,  null,  null,  null, 'm4v', 'm4v',  null,  null,  null,  null,  null, null]
           ],
           'background2': 'grass.png',
+          'pokemon2': [ 7, 8, 9, 10, 11, 12, 13, 14, 25, 26, 29, 30, 31, 32, 33, 34, 43, 44, 45, 46, 47, 48, 
+                        49, 60, 61, 62, 66, 67, 68, 72, 73, 79, 80, 87, 87, 90, 91, 98, 99, 116, 117, 118, 119, 
+                        120, 121, 124, 129, 132, 133, 134, 145 ],
           'map3': [
             [ null,  null,  null,  null,  null,  null, 'm1v', 'm1v',  null,  null,  null,  null,  null,  null],
             [ null,  's1',  's1',  's1',  's1',  's1',     0,     0,  's1',  's1',  's1',  's1',  's1',  null],
@@ -48,6 +53,9 @@ $(document).ready(function() {
             [ null,  null,  null,  null,  null,  null, 'm1v', 'm1v',  null,  null,  null,  null,  null,  null]
           ],
           'background3': 'snow.png',
+          'pokemon3': [ 7, 8, 9, 21, 22, 29, 30, 31, 32, 33, 34, 35, 36, 39, 40, 41, 42, 54, 55, 60, 61, 62, 66, 67, 
+                        68, 81, 82, 86, 87, 90, 91, 100, 101, 115, 122, 124, 125, 128, 130, 131, 133, 134, 133, 135, 
+                        137, 144, 145, 147, 148, 149 ],
           'map4': [
             [ null,  null,  null,  null,  null,  null, 'm2v', 'm2v',  null,  null,  null,  null,  null,  null],
             [ null,  'c7',  'c7',  'c7',  'c2',  'c3',     0,     0,  'c1',  'c7',  'c7',  'c2',  'c7',  null],
@@ -58,7 +66,10 @@ $(document).ready(function() {
             [ null,  'c7',  'c5',  'c7',  'c7',  'c6',     0,     0,  'c5',  'c7',  'c7',  'c7',  'c7',  null],
             [ null,  null,  null,  null,  null,  null, 'm2v', 'm2v',  null,  null,  null,  null,  null,  null]
           ],
-          'background4': 'cavebg.png'
+          'background4': 'cavebg.png',
+          'pokemon4': [ 4, 5, 6, 23, 24, 27, 28, 37, 38, 39, 40, 41, 42, 50, 51, 54, 55, 58, 59, 66, 67, 
+                        68, 74, 75, 76, 77, 78, 88, 89, 92, 93, 94, 95, 96, 97, 102, 103, 104, 105, 106, 107, 
+                        109, 110, 111, 112, 126, 132, 133, 135, 136, 137, ,138, 139, 140, 141, 142, 146, 151 ]
         },
         ashUrl = '<img src="/assets/ash/ash.png" id="ash">',
         ashPos = { row: 4, col: 10 },
@@ -92,7 +103,6 @@ $(document).ready(function() {
     // Place given obstacle at the given row and column
     function placeBackground(image, row, col) {
       selector = generateSelector(row, col);
-      console.log(image)
       $(selector).css('background-image', 'url("assets/' + image + '")');
     }
 
@@ -110,14 +120,15 @@ $(document).ready(function() {
     }
 
     // Generates given number of pokemon on the map
-    function generatePokemon(number) {
+    function generatePokemon(number, mapNumber) {
       var pokemonId,
           checkTile,
           row,
           col,
-          imageUrlToAppend;
+          imageUrlToAppend,
+          pokemonArray = maps['pokemon' + mapNumber];
       for(i=0; i<number; i++) {
-        pokemonId = 1 + Math.floor(151*Math.random());
+        pokemonId = pokemonArray[Math.floor(pokemonArray.length*Math.random())];
         checkTile = true;
         while (checkTile) {
           row = 1 + Math.floor(4*Math.random());
@@ -139,7 +150,6 @@ $(document).ready(function() {
           if (typeof mapArray[i][j] === 'string') {
             placeObstacle(mapArray[i][j], i, j);
           } else if (typeof mapArray[i][j] === 'number') {
-            console.log(mapNumber)
             placeBackground(maps['background'+ mapNumber], i, j);
           }
           if (typeof mapArray[i][j] === 'number' && mapArray[i][j] > 0) {
@@ -282,19 +292,18 @@ $(document).ready(function() {
             mapArray = maps['map1'];
             mapNumber = 1;
             setMap();
-            generatePokemon(3);
+            generatePokemon(3, mapNumber);
           } else {
             mapArray = data.map_state.mapArray;
             ashPos = data.map_state.ashPos;
             pokemonToGenerate = data.map_state.pokemonToGenerate;
             mapNumber = data.map_state.mapNumber;
             setMap();
-            generatePokemon(pokemonToGenerate);
+            generatePokemon(pokemonToGenerate, mapNumber);
           }
         } 
       });
     }
-  
     loadState();
   });
 });
