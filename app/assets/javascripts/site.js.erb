@@ -71,7 +71,7 @@ $(document).ready(function() {
                         68, 74, 75, 76, 77, 78, 88, 89, 92, 93, 94, 95, 96, 97, 102, 103, 104, 105, 106, 107, 
                         109, 110, 111, 112, 126, 132, 133, 135, 136, 137, ,138, 139, 140, 141, 142, 146, 151 ]
         },
-        ashUrl = '<img src="/assets/ash/ash.png" id="ash">',
+        ashUrl = '<img src="/assets/ash/d1.png" id="ash">',
         ashPos = { row: 4, col: 10 },
         columnHeight;
 
@@ -180,18 +180,22 @@ $(document).ready(function() {
     }    
 
     function checkLeft(position) {
+      $('#ash').attr('src', '/assets/ash/l1.png')
       return mapArray[position.row][position.col - 1];
     }
 
     function checkUp(position) {
+      $('#ash').attr('src', '/assets/ash/u1.png')
       return mapArray[position.row - 1][position.col];
     }
 
     function checkRight(position) {
+      $('#ash').attr('src', '/assets/ash/r1.png')
       return mapArray[position.row][position.col + 1];
     }
 
     function checkDown(position) {
+      $('#ash').attr('src', '/assets/ash/d1.png')
       return mapArray[position.row + 1][position.col];
     }
 
