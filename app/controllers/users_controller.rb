@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "You have successfully created an account"
       session[:user_id] = @user.id
-      redirect_to '/'
+      redirect_to user_path(current_user)
     else 
       redirect_to '/signup'
     end
