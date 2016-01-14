@@ -8,7 +8,7 @@ class CaughtPokemonsController < ApplicationController
       redirect_to map_path
     else
       flash[:error] = @caught_pokemon.errors.full_messages.join(', ')
-      redirect_to map_path
+      redirect_to user_path(current_user)
     end
   end
 
