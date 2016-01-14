@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @caught_pokemons = @user.caught_pokemons.all.page(params[:page]).per(10)
+    @caught_pokemons = @user.caught_pokemons.order("pokemon_id ASC").page(params[:page]).per(10)
   end
 
   def destroy
