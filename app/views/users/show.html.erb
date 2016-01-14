@@ -32,12 +32,13 @@
       <div class="row"> <!-- user info row -->
         <div class="col-xs-10 col-xs-offset-1">
           <h3 class="text-center"><%= @user.username %></h3>
-          <h4>joined on <%= @user.created_at.strftime("%b %d, %Y") %></h4>
+          <h4 class="text-center">joined on <%= @user.created_at.strftime("%b %d, %Y") %></h4>
+          <h4 class="text-center"><%= @user.caught_pokemons.size %> Pokemon Caught</h4>
         </div>
       </div>
       <div class="row padding"> <!-- question row -->
         <%= link_to map_path do %>
-          <div class="col-xs-10 col-xs-offset-1 borderblack text-black green padding">
+          <div class="col-xs-10 col-xs-offset-1 borderblack text-black green padding hoverGreen">
             <h4 class="text-center">
               Catch some pokemon!
             </h4>
@@ -55,22 +56,22 @@
           </div>
           <% @caught_pokemons.each do |caught_pokemon| %>
             <%= link_to caught_pokemon_path(caught_pokemon) do %>
-            <div class="row borderbottom">
+            <div class="row borderbottom hoverGreen">
               <div class="col-xs-2">
                 <%= image_tag "pokemon/"+caught_pokemon.pokemon.sprite,class: "img-responsive"%>
               </div>
-              <div class="col-xs-1">
+              <div class="col-xs-2">
                 <h6>
                   <%= caught_pokemon.pokemon.national_id %>
                 </h6>
               </div>
-              <div class="col-xs-5">
-                <h6>
-                  <%= caught_pokemon.name[0...12] %>
+              <div class="col-xs-4">
+                <h6 class="overflow">
+                  <%= caught_pokemon.name %>
                 </h6>
               </div>
               <div class="col-xs-4">
-                <h6>
+                <h6 class="overflow">
                   <%= caught_pokemon.pokemon.species %>
                 </h6>
               </div>
