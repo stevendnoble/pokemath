@@ -37,7 +37,7 @@
       </div>
       <div class="row padding"> <!-- question row -->
         <%= link_to map_path do %>
-          <div class="col-xs-10 col-xs-offset-1 borderblack text-black green padding">
+          <div class="col-xs-10 col-xs-offset-1 borderblack text-black green padding hoverGreen">
             <h4 class="text-center">
               Catch some pokemon!
             </h4>
@@ -55,7 +55,7 @@
           </div>
           <% @caught_pokemons.each do |caught_pokemon| %>
             <%= link_to caught_pokemon_path(caught_pokemon) do %>
-            <div class="row borderbottom">
+            <div class="row borderbottom hoverGreen">
               <div class="col-xs-2">
                 <%= image_tag "pokemon/"+caught_pokemon.pokemon.sprite,class: "img-responsive"%>
               </div>
