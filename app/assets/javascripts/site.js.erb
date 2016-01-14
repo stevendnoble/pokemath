@@ -1,8 +1,7 @@
 $(document).ready(function() {
   $(".site.map").ready(function() {
 
-    var keyPressed,
-        ash = $('#ash');
+    var keyPressed;
 
     var $gameScreen = $('.game-screen'),
         $gameTile = $('.game-tile'),
@@ -28,7 +27,6 @@ $(document).ready(function() {
       var marginLeft = ($gameScreen.width() - $gameMap.width()) / 2;
       $gameTile.height(columnHeight);
       $gameTile.width(columnHeight);
-      console.log(marginLeft);
       $gameMap.css('margin-left', marginLeft);
     }
     setSizeMap();
@@ -81,23 +79,23 @@ $(document).ready(function() {
     }
 
     function setMap() {
-      mapArray = map1;
+      var imageUrlToAppend;
+      console.log(ashPos)
       placeAsh(ashPos.row, ashPos.col);
       for(i=0;i<6;i++) {
         for(j=0;j<12;j++) {
           if(mapArray[i][j][0] === 'o') {
             placeObstacle(mapArray[i][j], i, j);
+          }else if (typeof mapArray[i][j] === 'number' && mapArray[i][j] > 0) {
+            selector = generateSelector(i, j);
+            $(selector).addClass('pokemon');
+            imageUrlToAppend = '<img src="/assets/pokemon/' + mapArray[i][j] + '.png" class="img-responsive">';
+            $(selector).html(imageUrlToAppend);
           }
         }
       }
-      // if (savedstate) {
-      //   restoresavedstate
-      //   placePokemon(1)
-      // } else {
-      placePokemon(5);
-      // }
     }
-    setMap();
+    // setMap();
 
     function moveLeft(position, selector) {
       selector.animate({ left: ('-='+columnHeight) });
@@ -135,22 +133,43 @@ $(document).ready(function() {
       return mapArray[position.row + 1][position.col];
     }
 
+    function removeLeft(position) {
+      mapArray[position.row][position.col - 1] = 0;
+    }
+
+    function removeUp(position) {
+      mapArray[position.row - 1][position.col] = 0;
+    }
+
+    function removeRight(position) {
+      mapArray[position.row][position.col + 1] = 0;
+    }
+
+    function removeDown(position) {
+      mapArray[position.row + 1][position.col] = 0;
+    }
+
+
     var key = {
       '106': { 
         position: checkLeft, 
-        direction: moveLeft
+        direction: moveLeft,
+        remove: removeLeft
       },
       '105': { 
         position: checkUp,
-        direction: moveUp
+        direction: moveUp,
+        remove: removeUp
       },
       '108': { 
         position: checkRight,
-        direction: moveRight
+        direction: moveRight,
+        remove: removeRight
       },
       '107': { 
         position: checkDown,
-        direction: moveDown
+        direction: moveDown,
+        remove: removeDown
       }
     }
 
@@ -161,20 +180,46 @@ $(document).ready(function() {
         // moveLeft, moveUp, etc.
         key[keyPressed].direction(ashPos, $('#ash'))
       } else if (typeof key[keyPressed].position(ashPos) === 'number') {
-        url = 'pokemons/' + key[keyPressed].position(ashPos)
-        // key[keyPressed].position(ashPos) = 0; // remove pokemon from the map
+        url = baseUrl + 'pokemons/' + key[keyPressed].position(ashPos)
+        key[keyPressed].remove(ashPos); // remove pokemon from the map
+        console.log(mapArray);
         $(document).off('keypress');
-        window.location.href = baseUrl + url; 
+        saveState(url);
       }
     });
-  });
 
-  //now needs to pass through some kind of request and be able to access through the controller 
-  // $.ajax({
-  //   type: "post",
-  //   url: "/mapstate",
-  //   // grabbing the map array and turning it into string
-  //   data: {data_value: JSON.stringify(mapArray)}
-  // });
+    //now needs to pass through some kind of request and be able to access through the controller 
+    function saveState(url) {
+      var state = {mapArray: mapArray, ashPos: ashPos};
+      $.ajax({
+        type: "post",
+        url: "/mapstate",
+        data: {data_value: JSON.stringify(state) },
+        success: function() {
+          window.location.href = url; 
+        }
+      });
+    };
+
+    function loadState() {
+      $.ajax({
+        type: "get",
+        url: "/mapstate",
+        success: function(data) {
+          console.log(data);
+          if (data.initialize_map) {
+            mapArray = map1;
+            setMap();
+            placePokemon(5);
+          } else {
+            mapArray = data.map_state.mapArray;
+            ashPos = data.map_state.ashPos;
+            setMap();    
+          }
+        } 
+      });
+    }
   
+    loadState();
+  });
 });
