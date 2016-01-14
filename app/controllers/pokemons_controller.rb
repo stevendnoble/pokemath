@@ -53,15 +53,4 @@ class PokemonsController < ApplicationController
 
   def create
   end
-
-  private
-
-  # def set_pokemon
-  #   pokemon_id = params[:id]
-  #   @pokemon = Pokemon.find_by_national_id
-  # end
-
-  # def pokemon_params
-  #   params.require(:pokemon).permit(:)
-  # end
 end
