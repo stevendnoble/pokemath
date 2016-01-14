@@ -87,6 +87,7 @@ $(document).ready(function() {
           if(mapArray[i][j][0] === 'o') {
             placeObstacle(mapArray[i][j], i, j);
           }else if (typeof mapArray[i][j] === 'number' && mapArray[i][j] > 0) {
+            selector = generateSelector(i, j);
             $(selector).addClass('pokemon');
             imageUrlToAppend = '<img src="/assets/pokemon/' + mapArray[i][j] + '.png" class="img-responsive">';
             $(selector).html(imageUrlToAppend);
@@ -132,22 +133,43 @@ $(document).ready(function() {
       return mapArray[position.row + 1][position.col];
     }
 
+    function removeLeft(position) {
+      mapArray[position.row][position.col - 1] = 0;
+    }
+
+    function removeUp(position) {
+      mapArray[position.row - 1][position.col] = 0;
+    }
+
+    function removeRight(position) {
+      mapArray[position.row][position.col + 1] = 0;
+    }
+
+    function removeDown(position) {
+      mapArray[position.row + 1][position.col] = 0;
+    }
+
+
     var key = {
       '106': { 
         position: checkLeft, 
-        direction: moveLeft
+        direction: moveLeft,
+        remove: removeLeft
       },
       '105': { 
         position: checkUp,
-        direction: moveUp
+        direction: moveUp,
+        remove: removeUp
       },
       '108': { 
         position: checkRight,
-        direction: moveRight
+        direction: moveRight,
+        remove: removeRight
       },
       '107': { 
         position: checkDown,
-        direction: moveDown
+        direction: moveDown,
+        remove: removeDown
       }
     }
 
@@ -158,20 +180,24 @@ $(document).ready(function() {
         // moveLeft, moveUp, etc.
         key[keyPressed].direction(ashPos, $('#ash'))
       } else if (typeof key[keyPressed].position(ashPos) === 'number') {
-        url = 'pokemons/' + key[keyPressed].position(ashPos)
-        // key[keyPressed].position(ashPos) = 0; // remove pokemon from the map
+        url = baseUrl + 'pokemons/' + key[keyPressed].position(ashPos)
+        key[keyPressed].remove(ashPos); // remove pokemon from the map
+        console.log(mapArray);
         $(document).off('keypress');
-        window.location.href = baseUrl + url; 
+        saveState(url);
       }
     });
 
     //now needs to pass through some kind of request and be able to access through the controller 
-    function saveState() {
-      var state = {mapArray, ashPos};
+    function saveState(url) {
+      var state = {mapArray: mapArray, ashPos: ashPos};
       $.ajax({
         type: "post",
         url: "/mapstate",
-        data: {data_value: JSON.stringify(state) }
+        data: {data_value: JSON.stringify(state) },
+        success: function() {
+          window.location.href = url; 
+        }
       });
     };
 
@@ -180,20 +206,20 @@ $(document).ready(function() {
         type: "get",
         url: "/mapstate",
         success: function(data) {
-          debugger
           console.log(data);
           if (data.initialize_map) {
             mapArray = map1;
             setMap();
             placePokemon(5);
           } else {
-            mapArray = data.mapArray;
-            ashPos = data.ashPos;
+            mapArray = data.map_state.mapArray;
+            ashPos = data.map_state.ashPos;
             setMap();    
           }
         } 
       });
     }
+  
     loadState();
   });
 });
