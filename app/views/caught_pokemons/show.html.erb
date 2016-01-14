@@ -31,8 +31,8 @@
       </div>
       <div class="row"> <!-- user info row -->
         <div class="col-xs-10 col-xs-offset-1">
-          <h3 class="text-center">@<%= @caught_pokemon.name %></h3>
-          <h4>Caught <%= time_ago_in_words(@caught_pokemon.created_at)%> ago %></h4>
+          <h3 class="text-center"><%= @caught_pokemon.name %></h3>
+          <h4>Caught <%= time_ago_in_words(@caught_pokemon.created_at)%> ago</h4>
         </div>
       </div>
       <div class="row padding"> <!-- question row -->
@@ -156,15 +156,3 @@
     </div>
   </div>
 </div>
-
-
-
-  
-        <td><strong>Speed: </strong></td>
-        <td></td>
-      </tr>   
-    </table>
-  </div> 
-</div>
- 
-    
