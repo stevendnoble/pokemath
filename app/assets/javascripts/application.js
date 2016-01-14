@@ -37,4 +37,7 @@ $(function() {
         $(this).addClass("ion-ios-volume-high");
       }
     });
+    //flash msg fade out
+    $('.alert').delay(1200).fadeOut('slow');
+
 });
