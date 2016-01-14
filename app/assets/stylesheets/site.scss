@@ -21,6 +21,7 @@ $pokered: #E3350D;
     background-size: cover;
   }
 
+// Forest obstacles
   .o1 {
     // obstacle 1
     background-image: url('tree.png'); 
@@ -36,6 +37,134 @@ $pokered: #E3350D;
   .o3 {
     // obstacle 3
     background-image: url('log.png');  
+    background-size: cover; 
+  }
+
+// Water obstacles
+  .w1 {
+    // obstacle 1
+    background-image: url('waterbottomleft.png'); 
+    background-size: cover; 
+  }
+
+  .w2 {
+    // obstacle 2
+    background-image: url('waterbottom.png');  
+    background-size: cover; 
+  }
+
+  .w3 {
+    // obstacle 3
+    background-image: url('waterbottomright.png');  
+    background-size: cover; 
+  }
+
+  .w4 {
+    // obstacle 1
+    background-image: url('waterleft.png'); 
+    background-size: cover; 
+  }
+
+  .w5 {
+    // obstacle 2
+    background-image: url('water.png');  
+    background-size: cover; 
+  }
+
+  .w6 {
+    // obstacle 3
+    background-image: url('waterright.png');  
+    background-size: cover; 
+  }
+
+  .w7 {
+    // obstacle 1
+    background-image: url('wateronelilypad.png'); 
+    background-size: cover; 
+  }
+
+  .w8 {
+    // obstacle 2
+    background-image: url('watertwolilypads.png');  
+    background-size: cover; 
+  }
+
+  .w9 {
+    // obstacle 3
+    background-image: url('waterrock.png');  
+    background-size: cover; 
+  }
+
+  .s1 {
+    // obstacle 1
+    background-image: url('snowfattree.png'); 
+    background-size: cover; 
+  }
+
+  .s2 {
+    // obstacle 2
+    background-image: url('snowtree.png');  
+    background-size: cover; 
+  }
+
+  .s3 {
+    // obstacle 3
+    background-image: url('snowlogs.png');  
+    background-size: cover; 
+  }
+
+  .s4 {
+    // obstacle 1
+    background-image: url('snowrock.png'); 
+    background-size: cover; 
+  }
+
+// Cave obstacles
+  .c1 {
+    // obstacle 1
+    background-image: url('cavebottomleft.png'); 
+    background-size: cover; 
+  }
+
+  .c2 {
+    // obstacle 2
+    background-image: url('cavebottom.png');  
+    background-size: cover; 
+  }
+
+  .c3 {
+    // obstacle 3
+    background-image: url('cavebottomright.png');  
+    background-size: cover; 
+  }
+
+  .c4 {
+    // obstacle 1
+    background-image: url('cavetopleft.png'); 
+    background-size: cover; 
+  }
+
+  .c5 {
+    // obstacle 2
+    background-image: url('cavetop.png');  
+    background-size: cover; 
+  }
+
+  .c6 {
+    // obstacle 3
+    background-image: url('cavetopright.png');  
+    background-size: cover; 
+  }
+
+  .c7 {
+    // obstacle 1
+    background-image: url('cavehigh.png'); 
+    background-size: cover; 
+  }
+
+  .c8 {
+    // obstacle 2
+    background-image: url('caverock.png');  
     background-size: cover; 
   }
 

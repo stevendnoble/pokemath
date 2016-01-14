@@ -31,6 +31,7 @@ $(document).ready(function() {
 
     var keyPressed;
     var questions;
+    var caught = false;
 
     // Sets the height of a tile to be the same as the width
     // to make each one a square
@@ -97,11 +98,11 @@ $(document).ready(function() {
               questionNumber++;
               displayQuestions();
             } else {
-              // replace image with pokeball
+              // replace image with pokeballj
+              caught=true;
               selectView($battleCaught);
               $pokemonNameField.focus();
               questionNumber = 1
-
             }
           } else {
             pokemonEscaped();
@@ -164,8 +165,7 @@ $(document).ready(function() {
         if (timer < 10) {
           $timer.css('visibility', 'visible');
         }
-        if (timer < 0) {
-          //timer = duration;
+        if (timer < 0 && !caught) {
           clearInterval(interval);
           $timer.css('visibility', 'hidden');
           pokemonEscaped();
