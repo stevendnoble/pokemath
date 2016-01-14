@@ -1,36 +1,167 @@
-<%= link_to 'Back to your Pokedex', user_path(current_user), class: "btn btn-default" %>
-<div class="row">
-  <div class="col-md-8 pokeImage">
-    <%= image_tag "pokemon/" + @pokemon.sprite, class: "image-responsive" %>
-  </div>
+<div class="container">
 
-  <div class="col-md-4"> 
-     <h1><%= @caught_pokemon.name %> <small><%= @pokemon.species %></small></h1>
-     <h4>Caught <%= time_ago_in_words(@caught_pokemon.created_at)%> ago</h4>
-    <table class="pokeInfo table">
-      <tr>
-        <td><strong>Type: </strong></td>
-        <td><%= @pokemon.pokemon_type1.titleize %></td>
-      </tr> 
-      <tr>
-        <td><strong>Attack: </strong></td>
-        <td><%= @pokemon.attack %></td>
-      </tr> 
-      <tr>
-        <td><strong>Defense: </strong></td>
-        <td><%= @pokemon.defense %></td>
-      </tr>
-      <tr>
-        <td><strong>SP Attack: </strong></td>
-        <td><%= @pokemon.sp_attack %></td>
-      </tr> 
-      <tr>
-        <td><strong>SP Defense: </strong></td>
-        <td><%= @pokemon.sp_defense %></td>
-      </tr>
-      <tr>  
+  <div class="row show-grid br12 red text-white pokedex borderblack"> <!-- pokedex -->
+    <div class="col-xs-6 show-grid borderright"> <!-- left column -->
+      <div class="row padding red br12"> <!-- buttons above ash -->
+        <div class="col-xs-2 ">
+          <%= image_tag asset_path('water.png'), class: "img-responsive img-circle borderblack" %>
+        </div>
+        <div class="col-xs-1">
+          <button class="btn btn-xs br12 borderblack btn-danger">&nbsp;</button>
+        </div>
+        <div class="col-xs-1">
+          <button class="btn btn-xs br12 borderblack btn-warning">&nbsp;</button>
+        </div>
+        <div class="col-xs-1">
+          <button class="btn btn-xs br12 borderblack btn-success">&nbsp;</button>
+        </div>
+      </div>
+      <div class="row padding"> <!-- picture row -->
+        <div class="col-xs-8 col-xs-offset-2 padding">
+          <div class="row gray padding borderblack">
+            <div class="col-xs-8 col-xs-offset-2 padding">
+              <div class="row blue padding borderblack br12">
+                <div class="col-xs-10 col-xs-offset-1">
+                  <%= image_tag "pokemon/" + @pokemon.sprite, class: "img-responsive" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+      <div class="row"> <!-- user info row -->
+        <div class="col-xs-10 col-xs-offset-1">
+          <h3 class="text-center">@<%= @caught_pokemon.name %></h3>
+          <h4>Caught <%= time_ago_in_words(@caught_pokemon.created_at)%> ago %></h4>
+        </div>
+      </div>
+      <div class="row padding"> <!-- question row -->
+        <%= link_to user_path(@caught_pokemon.user) do %>
+          <div class="col-xs-10 col-xs-offset-1 borderblack text-black green padding">
+            <h4 class="text-center">
+              Back to your PokéDex
+            </h4>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-6 show-grid borderleft"> <!-- right column -->
+      <div class="row show-grid padding20 br12">
+        <div class="col-xs-10 col-xs-offset-1 green borderblack text-black">
+          <div class="row borderbottom"> <!-- species -->
+            <div class="col-xs-12 text-center">
+              <h4><%= @pokemon.species %></h4>
+            </div>
+          </div>
+          <div class="row borderbottom"> <!-- national id -->
+            <div class="col-xs-6">
+              <h5 class="text-right"><strong>
+                National ID:
+              </strong></h5>
+            </div>
+            <div class="col-xs-6">
+              <h5>
+                <%= @pokemon.national_id %>
+              </h5>
+            </div>
+          </div>
+          <div class="row borderbottom"> <!-- types -->
+            <div class="col-xs-6">
+              <h5 class="text-right"><strong>
+                Type<% if @pokemon.pokemon_type2 %>s<% end %>:
+              </strong></h5>
+            </div>
+            <div class="col-xs-6">
+              <h5>
+                <%= @pokemon.pokemon_type1.titleize %><% if @pokemon.pokemon_type2 %>, <%= @pokemon.pokemon_type2.titleize %><% end %>
+              </h5>
+            </div>
+          </div>
+          <div class="row borderbottom"> <!-- attack -->
+            <div class="col-xs-6">
+              <h5 class="text-right"><strong>
+                Attack:
+              </strong></h5>
+            </div>
+            <div class="col-xs-6">
+              <h5>
+                <%= @pokemon.attack %>
+              </h5>
+            </div>
+          </div>
+          <div class="row borderbottom"> <!-- defense -->
+            <div class="col-xs-6">
+              <h5 class="text-right"><strong>
+                Defense:
+              </strong></h5>
+            </div>
+            <div class="col-xs-6">
+              <h5>
+                <%= @pokemon.defense %>
+              </h5>
+            </div>
+          </div>
+          <div class="row borderbottom"> <!-- special attack -->
+            <div class="col-xs-6">
+              <h5 class="text-right"><strong>
+                Special Attack:
+              </strong></h5>
+            </div>
+            <div class="col-xs-6">
+              <h5>
+                <%= @pokemon.sp_attack %>
+              </h5>
+            </div>
+          </div>
+          <div class="row borderbottom"> <!-- special defense -->
+            <div class="col-xs-6">
+              <h5 class="text-right"><strong>
+                Special Defense:
+              </strong></h5>
+            </div>
+            <div class="col-xs-6">
+              <h5>
+                <%= @pokemon.sp_defense %>
+              </h5>
+            </div>
+          </div>
+          <div class="row borderbottom"> <!-- speed -->
+            <div class="col-xs-6">
+              <h5 class="text-right"><strong>
+                Speed:
+              </strong></h5>
+            </div>
+            <div class="col-xs-6">
+              <h5>
+                <%= @pokemon.speed %>
+              </h5>
+            </div>
+          </div>
+          <% if @pokemon.evolution %> evolution
+            <div class="row borderbottom">
+              <div class="col-xs-5">
+                <h5 class="text-right"><strong>
+                  Evolves Into:
+                </strong></h5>
+              </div>
+              <div class="col-xs-6">
+                <h5>
+                  <%= @pokemon.evolution %>
+                </h5>
+              </div>
+            </div>
+          <% end %>            
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
         <td><strong>Speed: </strong></td>
-        <td><%= @pokemon.speed %></td>
+        <td></td>
       </tr>   
     </table>
   </div> 
