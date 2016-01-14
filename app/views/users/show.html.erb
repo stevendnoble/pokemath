@@ -51,7 +51,7 @@
               <h4>Caught Pokemon</h4>
             </div>
           </div>
-          <% @user.caught_pokemons.each do |caught_pokemon| %>
+          <% @caught_pokemons.each do |caught_pokemon| %>
             <%= link_to caught_pokemon_path(caught_pokemon) do %>
             <div class="row borderbottom">
               <div class="col-xs-2">
@@ -59,7 +59,7 @@
               </div>
               <div class="col-xs-1">
                 <h6>
-                  <%= caught_pokemon.pokemon_id %>
+                  <%= caught_pokemon.pokemon.national_id %>
                 </h6>
               </div>
               <div class="col-xs-5">
@@ -75,6 +75,7 @@
             </div>
             <% end %>
           <% end %>
+          <%= paginate @caught_pokemons %>
         </div>
       </div>
     </div>
