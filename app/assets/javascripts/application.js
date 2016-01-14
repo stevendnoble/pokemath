@@ -20,7 +20,7 @@
 //= require jquery-readyselector
 
 $(function() {
-    new WOW().init();
+  new WOW().init();
 
     //mute video
     // $("video").prop("muted", true);
