@@ -150,9 +150,16 @@
                 </h5>
               </div>
             </div>
-          <% end %>            
+          <% end %>
         </div>
       </div>
+      <% if current_user.id == @caught_pokemon.user_id %>
+      <div class="row">
+        <div class="col-xs-3 col-xs-offset-3">
+          <%= link_to 'Release Pokemon', caught_pokemon_path(@caught_pokemon), class: "btn btn-warning", method: :delete %>
+        </div>
+      </div>  
+      <% end %>          
     </div>
   </div>
 </div>

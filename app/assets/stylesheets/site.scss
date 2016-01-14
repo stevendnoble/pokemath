@@ -262,16 +262,19 @@ $pokered: #E3350D;
   .pokedex-image {
     height: 50%;
   }
-  #mission {
-    width: 50%;
-    padding-top: 100px;
-    padding-left: 50px;
-  }
+  // #mission {
+  //   width: 50%;
+  //   padding-top: 100px;
+  //   padding-left: 50px;
+  // }
+  //Pikachu bouncing
   .pika-gif {
     position: relative;
     top: -29px;
     left: -10px;
   }
+
+  //Style for toggle button on landing page
   .mute {
     position: relative;
     top: 210px;
