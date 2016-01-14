@@ -1,28 +1,26 @@
 <div class="container">
 
-  <div class="row show-grid br10 red text-white"> <!-- pokedex -->
-
-
-    <div class="col-xs-6 show-grid br10"> <!-- left column -->
-      <div class="row padding red br10"> <!-- buttons above ash -->
+  <div class="row show-grid br12 red text-white pokedex borderblack"> <!-- pokedex -->
+    <div class="col-xs-6 show-grid borderright"> <!-- left column -->
+      <div class="row padding red br12"> <!-- buttons above ash -->
         <div class="col-xs-2 ">
           <%= image_tag asset_path('water.png'), class: "img-responsive img-circle borderblack" %>
         </div>
         <div class="col-xs-1">
-          <button class="btn btn-xs br10 borderblack btn-danger">&nbsp;&nbsp;&nbsp;</button>
+          <button class="btn btn-xs br12 borderblack btn-danger">&nbsp;</button>
         </div>
         <div class="col-xs-1">
-          <button class="btn btn-xs br10 borderblack btn-warning">&nbsp;&nbsp;&nbsp;</button>
+          <button class="btn btn-xs br12 borderblack btn-warning">&nbsp;</button>
         </div>
         <div class="col-xs-1">
-          <button class="btn btn-xs br10 borderblack btn-success">&nbsp;&nbsp;&nbsp;</button>
+          <button class="btn btn-xs br12 borderblack btn-success">&nbsp;</button>
         </div>
       </div>
       <div class="row padding"> <!-- picture row -->
         <div class="col-xs-8 col-xs-offset-2 padding">
           <div class="row gray padding borderblack">
             <div class="col-xs-8 col-xs-offset-2 padding">
-              <div class="row blue padding borderblack br10">
+              <div class="row blue padding borderblack br12">
                 <div class="col-xs-10 col-xs-offset-1">
                   <%= image_tag ("/assets/ash/ash.png"), class:"img-responsive" %>
                 </div>
@@ -33,7 +31,8 @@
       </div>
       <div class="row"> <!-- user info row -->
         <div class="col-xs-10 col-xs-offset-1">
-          <h3 class="text-center">@<%= @user.username %>: joined on <%= @user.created_at.strftime("%b %d, %Y") %></h3>
+          <h3 class="text-center">@<%= @user.username %></h3>
+          <h4>joined on <%= @user.created_at.strftime("%b %d, %Y") %></h4>
         </div>
       </div>
       <div class="row padding"> <!-- question row -->
@@ -43,34 +42,39 @@
           </h4>
         </div>
       </div>
-
     </div>
-    <div class="col-xs-6 show-grid">
-      <h1 class=" btn btn-block show-grid">
-        stats
-      </h1>
-      <div class="row show-grid">
-        <ul class="nav nav-tabs" role="tablist">
-          <li><a href="#caughtPokemon" role="tab" data-toggle="tab">Caught Pokemon</a></li>
-          <li><a href="#playerStat" role="tab" data-toggle="tab">Player Stats</a></li>
-        </ul>
-        <div class="tab-content">
-
-          <div class="tab-pane container" id="caughtPokemon">
-            <h1>Enslaved Pokemon</h1>
-            <% @user.pokemons.each do |pokemon| %>
-              <div>
-                <h4><%= pokemon.species %> <small><%= pokemon.catch_rate %></small></h4>
-                <div>
-                <%= image_tag "pokemon/"+pokemon.sprite,class: "img-responsive"%>
-                </div>
-              <% end %>
+    <div class="col-xs-6 show-grid borderleft"> <!-- right column -->
+      <div class="row show-grid padding20 br12">
+        <div class="col-xs-10 col-xs-offset-1 green borderblack text-black">
+          <div class="row">
+            <div class="col-xs-12 text-center borderbottom">
+              <h4>Caught Pokemon</h4>
+            </div>
+          </div>
+          <% @user.caught_pokemons.each do |caught_pokemon| %>
+            <%= link_to caught_pokemon_path(caught_pokemon) do %>
+            <div class="row borderbottom">
+              <div class="col-xs-2">
+                <%= image_tag "pokemon/"+caught_pokemon.pokemon.sprite,class: "img-responsive"%>
               </div>
-          </div>
-          <div class="tab-pane container" id="playerStat">
-            <h1>Player stats</h1>
-            <h4>Caught Pokemon: <%= @user.pokemons.size %> </h4>
-          </div>
+              <div class="col-xs-1">
+                <h6>
+                  <%= caught_pokemon.pokemon_id %>
+                </h6>
+              </div>
+              <div class="col-xs-5">
+                <h6>
+                  <%= caught_pokemon.name[0...12] %>
+                </h6>
+              </div>
+              <div class="col-xs-4">
+                <h6>
+                  <%= caught_pokemon.pokemon.species %>
+                </h6>
+              </div>
+            </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

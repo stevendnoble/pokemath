@@ -1,17 +1,29 @@
 .show-grid {
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
-.br10 {
-  border-radius: 10px;
+.br12 {
+  border-radius: 12px;
 }
 
 .borderblack {
-  border: 2px solid black;
+  border: 3px solid black;
+}
+
+.borderright {
+  // border-right: 2px solid black;
+}
+
+.borderleft {
+  border-left: 2px solid black;
 }
 
 .padding {
   padding: 10px;
+}
+
+.padding20 {
+  padding: 20px;
 }
 
 .red {
@@ -36,4 +48,16 @@
 
 .text-black {
   color: black;
+}
+
+.borderbottom {
+  border-bottom: 1px solid black;
+}
+
+a, a:hover, a:focus {
+  color: black;
+}
+
+.pokedex {
+  font-family: 'pokemon_gbregular';
 }
