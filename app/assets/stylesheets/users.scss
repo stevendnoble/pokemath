@@ -61,3 +61,8 @@ a, a:hover, a:focus {
 .pokedex {
   font-family: 'pokemon_gbregular';
 }
+
+.overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
