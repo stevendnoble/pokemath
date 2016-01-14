@@ -39,5 +39,6 @@ $(function() {
     });
     //flash msg fade out
     $('.alert').delay(1200).fadeOut('slow');
-
+    //Testing flash when battle
+    // $(".outer-container").addClass("animated shake");
 });
