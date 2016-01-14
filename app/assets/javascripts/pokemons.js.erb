@@ -126,11 +126,11 @@ $(document).ready(function() {
     // Opens up the battle questions view
     function startBattle() {
       selectView($battleEncounter);
-      startTimer($hiddenTimer.text().toString(), $timer)
       $(document).on('keypress', function(event) {
         keyPressed = event.which;
         if (keyPressed === 32) {
           $(document).off('keypress');
+          startTimer($hiddenTimer.text().toString(), $timer)
           selectView($battleQuestions);
           displayQuestions();
         }
