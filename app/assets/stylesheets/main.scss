@@ -82,6 +82,24 @@
 
 // Styles for the login / signup
 h1.signup-login {
-  font-family: 'pokemon_gbregular';
+  font-family: 'pokemon_solidnormal';
+  color: $pokered;
   letter-spacing: 1px;
 }
+.btn-login-signup {
+  background-color: $pokered;
+  border-color:  $pokered;
+}
+.btn-login-signup:hover {
+  background-color: $pokered;
+  border-color: $pokered;
+}
+.click-here {
+  color: #5CB85C;
+}
+.click-here:hover {
+  color: #5CB85C;
+  text-decoration: none;
+
+}
+
