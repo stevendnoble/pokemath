@@ -32,7 +32,6 @@ $(document).ready(function() {
     setSizeMap();
     $(window).on("resize", setSizeMap);
 
-
     // Generates jquery selector for the given row and column
     function generateSelector(row, col) {
       selector = '#r' + row + 'c' + col;
@@ -214,7 +213,8 @@ $(document).ready(function() {
           } else {
             mapArray = data.map_state.mapArray;
             ashPos = data.map_state.ashPos;
-            setMap();    
+            setMap();
+            placePokemon(1);
           }
         } 
       });
