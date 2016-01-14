@@ -34,6 +34,6 @@ class CaughtPokemonsController < ApplicationController
     @caught_pokemon = CaughtPokemon.find(params[:id]);
   end
   def caught_pokemon_params
-    params.require(:caught_pokemon).permit(:name, :user_id, :pokemon_id)
+    params.require(:caught_pokemon).permit(:name, :user_id, :pokemon_id, :national_id)
   end
 end

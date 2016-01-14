@@ -66,6 +66,7 @@
             <%= f.text_field :name, class: "form-control", id: "pokemon-name-field", placeholder: "Enter your pokemon name" %>
           </div>
           <%= f.hidden_field :pokemon_id, value: @pokemon.id %>
+          <%= f.hidden_field :national_id, value: @pokemon.national_id %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <div class="form-group">
             <%= f.submit "Save to PokeDex", class: "btn btn-block btn-success" %>
