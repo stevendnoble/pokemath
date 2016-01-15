@@ -69,7 +69,7 @@ $(document).ready(function() {
           'background4': 'cavebg.png',
           'pokemon4': [ 4, 5, 6, 23, 24, 27, 28, 37, 38, 39, 40, 41, 42, 50, 51, 54, 55, 58, 59, 66, 67, 
                         68, 74, 75, 76, 77, 78, 88, 89, 92, 93, 94, 95, 96, 97, 102, 103, 104, 105, 106, 107, 
-                        109, 110, 111, 112, 126, 132, 133, 135, 136, 137, ,138, 139, 140, 141, 142, 146, 151 ]
+                        109, 110, 111, 112, 126, 132, 133, 135, 136, 137, 138, 139, 140, 141, 142, 146, 151 ]
         },
         ashUrl = '<img src="/assets/ash/d1.png" id="ash">',
         ashPos = { row: 4, col: 10 },
@@ -128,12 +128,16 @@ $(document).ready(function() {
           imageUrlToAppend,
           pokemonArray = maps['pokemon' + mapNumber];
       for(i=0; i<number; i++) {
+        console.log(pokemonArray.length)
         pokemonId = pokemonArray[Math.floor(pokemonArray.length*Math.random())];
+        console.log(pokemonId)
         checkTile = true;
         while (checkTile) {
           row = 1 + Math.floor(4*Math.random());
           col = 1 + Math.floor(10*Math.random());
           if (mapArray[row][col] === 0 && (row !== ashPos.row && col !== ashPos.col)) {
+            console.log(pokemonId)
+            if (pokemonId === undefined) { alert("hi")}
             checkTile = false;
             placePokemon(pokemonId, row, col);
             mapArray[row][col] = pokemonId;

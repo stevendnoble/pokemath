@@ -26,6 +26,42 @@ $(document).ready(function() {
         $choice2 = $('#choice2'),
         $choice3 = $('#choice3');
 
+    var problemtypess = {
+      simpleAddition: {
+        mathFunction: createAdditionProblem,
+        min: 0,
+        max: 10
+      },
+      doubleDigitAddition: {
+        mathFunction: createAdditionProblem,
+        min: 10,
+        max: 99
+      },
+      simpleSubtraction: {
+        mathFunction: createSubtractionProblem,
+        min: 0,
+        max: 10
+      },
+      doubleDigitSubtraction: {
+        mathFunction: createSubtractionProblem,
+        min: 10,
+        max: 99
+      },
+      simpleMultiplication: {
+        mathFunction: createMultiplicationProblem,
+        min: 0,
+        max: 10
+      },
+      doubleDigitMultiplication: {
+        mathFunction: createMultiplicationProblem,
+        min: 0,
+        max: 10
+      },
+      division: {
+        mathFunction: createSimpleDivisionProblem
+      }
+    };
+
     var questionNumber = 1;
     var pokemonTemp = $battlePokemon.attr('src');
 
@@ -173,6 +209,47 @@ $(document).ready(function() {
       }, 1000);
     }
     
+    //now needs to pass through some kind of request and be able to access through the controller 
+    function saveQuestionTypes() {
+      var state = { mapArray: mapArray,
+                    ashPos: ashPos,
+                    pokemonToGenerate: pokemonToGenerate,
+                    mapNumber: mapNumber };
+      $.ajax({
+        type: "post",
+        url: "/mapstate",
+        data: {data_value: JSON.stringify(state) },
+        success: function() {
+          window.location.href = url; 
+        }
+      });
+    };
+
+    function loadQuestionTypes() {
+      $.ajax({
+        type: "get",
+        url: "/mapstate",
+        success: function(data) {
+          if (data.initialize_map) {
+            mapArray = maps['map1'];
+            mapNumber = 1;
+            setMap();
+            generatePokemon(3, mapNumber);
+          } else {
+            mapArray = data.map_state.mapArray;
+            ashPos = data.map_state.ashPos;
+            pokemonToGenerate = data.map_state.pokemonToGenerate;
+            mapNumber = data.map_state.mapNumber;
+            setMap();
+            generatePokemon(pokemonToGenerate, mapNumber);
+          }
+        } 
+      });
+    }
+
+
+
+
     startBattle();
   });
 });
