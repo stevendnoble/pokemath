@@ -1,6 +1,5 @@
 class SiteController < ApplicationController
   before_action :authorize, only: [:map]
-  # this secures the site controller, so users need to login before they see these actions
   
   def index
   end
