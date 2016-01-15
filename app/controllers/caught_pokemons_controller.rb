@@ -3,13 +3,15 @@ class CaughtPokemonsController < ApplicationController
   before_action :set_pokemon, only:[:show,:destroy]
   
   def create
-    @caught_pokemon = CaughtPokemon.new(caught_pokemon_params)
-    if @caught_pokemon.save
-      flash[:notice] = "New pokemon in your pokedex!"
+    caught_pokemon = CaughtPokemon.new(caught_pokemon_params)
+    pokemon = Pokemon.find_by_national_id(caught_pokemon_params[:national_id])
+    if current_user.pokemons.include?(pokemon)
+      flash[:error] = "You can only have one of each species of pokemon!"
       redirect_to map_path
     else
-      flash[:error] = "You can only have one of each species of pokemon!"
-      redirect_to user_path(current_user)
+      caught_pokemon.save
+      flash[:notice] = "New pokemon in your pokedex!"
+      redirect_to map_path
     end
   end
 
