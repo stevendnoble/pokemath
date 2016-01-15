@@ -7,13 +7,13 @@
           <%= image_tag asset_path('water.png'), class: "pokedex-picture img-responsive img-circle borderblack" %>
         </div>
         <div class="col-xs-1">
-          <button class="btn btn-xs br12 borderblack btn-danger">&nbsp;</button>
+          <button class="btn btn-xs br12 borderblack btn-danger" id="no-outline">&nbsp;</button>
         </div>
         <div class="col-xs-1">
-          <button class="btn btn-xs br12 borderblack btn-warning">&nbsp;</button>
+          <button class="btn btn-xs br12 borderblack btn-warning" id="no-outline">&nbsp;</button>
         </div>
         <div class="col-xs-1">
-          <button class="btn btn-xs br12 borderblack btn-success">&nbsp;</button>
+          <button class="btn btn-xs br12 borderblack btn-success" id="no-outline">&nbsp;</button>
         </div>
       </div>
       <div class="row padding"> <!-- picture row -->
@@ -156,7 +156,7 @@
       <% if current_user.id == @caught_pokemon.user_id %>
       <div class="row">
         <div class="col-xs-3 col-xs-offset-3">
-          <%= link_to 'Release Pokemon', caught_pokemon_path(@caught_pokemon), class: "btn btn-warning", method: :delete %>
+          <%= link_to 'Release Pokemon', caught_pokemon_path(@caught_pokemon), id: "no-outline", class: "btn btn-warning", method: :delete %>
         </div>
       </div>  
       <% end %>          
