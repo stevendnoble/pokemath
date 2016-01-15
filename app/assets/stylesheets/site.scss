@@ -239,6 +239,9 @@ $pokered: #E3350D;
     -webkit-transition: all .4s;
     -moz-transition: all .4s;
     transition: all .4s; 
+    font-family:'pokemon_solidnormal';
+    letter-spacing: 3px;
+    font-size: 12px;
   }
 
   .btn-landing:hover {
@@ -265,7 +268,7 @@ $pokered: #E3350D;
     letter-spacing: 2px;
   }
   p.about-us {
-    font-size: 1.3em;
+    font-size: 15px;
   }
   //Pikachu bouncing
   .pika-gif {
@@ -291,4 +294,11 @@ $pokered: #E3350D;
 
   a:focus {
     outline: 0;
+  }
+  label {
+    font-size: 15px;
+  }
+  //Styles for modal
+  p.modal-instructions {
+    font-size: 15px;
   }
