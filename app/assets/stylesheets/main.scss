@@ -90,9 +90,11 @@ h1.signup-login {
   background-color: $pokered;
   border-color:  $pokered;
 }
-.btn-login-signup:hover {
-  background-color: $pokered;
-  border-color: $pokered;
+.btn-login-signup:hover,
+.btn-login-signup:focus,
+.btn-login-signup:active {
+  background-color: $pokered !important;
+  border-color: $pokered !important;
 }
 .click-here {
   color: #5CB85C;
