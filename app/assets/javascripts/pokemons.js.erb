@@ -162,6 +162,8 @@ $(document).ready(function() {
 
     // Opens up the battle questions view
     function startBattle() {
+      //playing with possible attention grabbers for the user when battle screen occurs
+      // $(".game-screen").addClass("animated flash");
       selectView($battleEncounter);
       $(document).on('keypress', function(event) {
         keyPressed = event.which;

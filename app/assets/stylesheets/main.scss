@@ -110,3 +110,12 @@ h1.signup-login {
   font-family: 'pokemon_solidnormal';
   letter-spacing: 2px;
 }
+//Stle for flash msg
+.alert-messages {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  z-index: 7000;
+  padding: 20px;
+}

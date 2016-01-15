@@ -6,9 +6,10 @@ class CaughtPokemonsController < ApplicationController
     @caught_pokemon = CaughtPokemon.new(caught_pokemon_params)
     if @caught_pokemon.save
       redirect_to map_path
+      flash[:notice] = "New pokemon in your pokedex!"
     else
-      flash[:error] = @caught_pokemon.errors.full_messages.join(', ')
-      redirect_to map_path
+      flash[:error] = "You can only have one of each species of pokemon!"
+      redirect_to user_path(current_user)
     end
   end
 

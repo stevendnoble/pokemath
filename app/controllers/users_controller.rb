@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :destroy]
   def new
     if current_user
       redirect_to user_path(current_user)
@@ -15,9 +15,9 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
     end
     if @user.save
-      flash[:notice] = "You have successfully created an account"
       session[:user_id] = @user.id
       redirect_to user_path(current_user)
+      flash[:notice] = "You have successfully created an account"
     else 
       redirect_to '/signup'
     end
