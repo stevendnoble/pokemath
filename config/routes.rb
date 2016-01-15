@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get "/battle", to: "pokemon#show"
   post "/mapstate", to: "mapstates#create"
   get "/mapstate", to: "mapstates#index"
+  post "/user_question_type", to: "user_question_types#create"
+  get "/user_question_type", to: "user_question_types#index"
 
 end
 

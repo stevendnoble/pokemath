@@ -74,11 +74,13 @@ function createMultiplicationProblem(numPossibleSolutions, minDigit, maxDigit) {
 			num1 = randDigit(minDigit, maxDigit),
 			num2 = randDigit(minDigit, maxDigit);
 	while (num1 === 1 && num2 === 1) {
+		debugger
 		num2 = randDigit(minDigit, maxDigit);
 	}
 	var product = num1 * num2;
 	possibleSolutions.push(product);
 	while(possibleSolutions.length < numPossibleSolutions) {
+		debugger
 		possibleSolution = Math.round(product*(Math.random() + 0.5));
 		if(possibleSolutions.indexOf(possibleSolution) === -1) {
 			possibleSolutions.push(possibleSolution);

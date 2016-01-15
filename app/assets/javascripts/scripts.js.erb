@@ -1,4 +1,5 @@
 var resizeTimer;
+var userQuestionTypes;
 
 // Checks the size of the browser and alerts the user if
 // window is too small to view
@@ -17,35 +18,48 @@ function browserTooSmall() {
 }
 // browserTooSmall();
 
-var userQuestionTypes;
+function saveQuestionTypes() {
+  $.ajax({
+    type: "post",
+    url: "/user_question_type",
+    data: { 'userQuestionTypes': JSON.stringify(userQuestionTypes) },
+    success: function() {
+      $('#questionModal').modal('toggle'); 
+    }
+  });
+};
 
-// $('#save-question').on('click', function(event) {
-//   event.preventDefault();
-//   userQuestionTypes = $('#')
-//       var searchIDs = $("#find-table input:checkbox:checked").map(function(){
-//         return $(this).val();
-//       }).get(); // <----
-//       console.log(searchIDs);
-//   });
-// });
+function loadQuestionTypes() {
+  $.ajax({
+    type: "get",
+    url: "/user_question_type",
+    success: function(data) {
+      userQuestionTypes = data.userQuestionTypes;
+      var checkBoxes = $('.checkbox > label > input');
+      for(var box=0; box<checkBoxes.length; box++) {
+        if (userQuestionTypes.indexOf(checkBoxes[box].name) !== -1) {
+          checkBoxes[box].checked = true;
+        }
+      }
 
-//now needs to pass through some kind of request and be able to access through the controller 
-// function saveState() {
-//   var state = { mapArray: mapArray,
-//                 ashPos: ashPos,
-//                 pokemonToGenerate: pokemonToGenerate,
-//                 mapNumber: mapNumber };
-//   $.ajax({
-//     type: "post",
-//     url: "/mapstate",
-//     data: {data_value: JSON.stringify(state) },
-//     success: function() {
-//       window.location.href = url; 
-//     }
-//   });
-// };
+    } 
+  });
+}
 
 // Global variables
 $(document).ready(function() {
-  
+
+  $('#save-question').on('click', function(event) {
+    event.preventDefault();
+    userQuestionTypes = [];
+    var checkBoxes = $('.checkbox > label > input');
+    for(var box=0; box<checkBoxes.length; box++) {
+      if (checkBoxes[box].checked) {
+        userQuestionTypes.push(checkBoxes[box].name);
+      }
+    }
+    saveQuestionTypes();
+  });
+
+  loadQuestionTypes();
 });
