@@ -67,6 +67,7 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    ffaker (2.1.0)
     ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -191,7 +192,9 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
+  factory_girl (~> 4.5)
   factory_girl_rails
+  ffaker (~> 2.1)
   ionicons-rails
   jbuilder (~> 2.0)
   jquery-rails
