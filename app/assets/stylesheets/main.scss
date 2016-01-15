@@ -95,6 +95,7 @@ h1.signup-login {
 .btn-login-signup:active {
   background-color: $pokered !important;
   border-color: $pokered !important;
+  outline: 0!important;
 }
 .click-here {
   color: #5CB85C;

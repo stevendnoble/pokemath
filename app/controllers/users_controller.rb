@@ -16,9 +16,10 @@ class UsersController < ApplicationController
     end
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(current_user)
       flash[:notice] = "You have successfully created an account"
+      redirect_to user_path(current_user)
     else 
+      flash[:error] = "Something weird happened"
       redirect_to '/signup'
     end
   end
