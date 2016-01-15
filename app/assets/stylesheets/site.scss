@@ -302,3 +302,23 @@ $pokered: #E3350D;
   p.modal-instructions {
     font-size: 15px;
   }
+
+  p.icon-fon {
+    font-size: 3em;
+  }
+  .equal, .equal > div[class*='col-'] {  
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex:1 0 auto;
+      height: 370px;
+  }
+  .pos {
+    position: relative;
+  }
+  .rel {
+    position: absolute;
+    bottom: -6%
+  }
