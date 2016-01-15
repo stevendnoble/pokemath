@@ -18,11 +18,11 @@
           <%= link_to "About", "/about" %>
         </li>
         <% if current_user %>
-        <% unless controller_name == "pokemons" && action_name == "show" %>
-          <li>
-            <%= link_to "Question Types", "javascript:void(0)", data: { toggle: "modal", target: "#questionModal" } %>
-          </li>
-        <% end %>
+          <% unless controller_name == "pokemons" && action_name == "show" %>
+            <li>
+              <%= link_to "Question Types", "javascript:void(0)", data: { toggle: "modal", target: "#questionModal" } %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     <div class="navbar-collapse collapse" id="bs-navbar"> 
