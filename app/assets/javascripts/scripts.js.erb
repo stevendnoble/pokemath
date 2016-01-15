@@ -16,7 +16,8 @@ function browserTooSmall() {
     }
   }, 500);
 }
-// browserTooSmall();
+browserTooSmall();
+$(window).on("resize", browserTooSmall);
 
 function saveQuestionTypes() {
   $.ajax({
