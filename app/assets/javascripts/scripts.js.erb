@@ -83,4 +83,7 @@ $(document).ready(function() {
   //flash msg fade out
   $('.alert').delay(1200).fadeOut('slow');
 
+  $('.rightcolumn').css('min-height', $('.leftcolumn').height());
+  $('.leftcolumn').css('min-height', $('.rightcolumn').height());
+
 });
