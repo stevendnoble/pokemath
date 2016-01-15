@@ -1,7 +1,5 @@
 var resizeTimer;
 
-var baseUrl = 'http://localhost:3000/'
-
 // Checks the size of the browser and alerts the user if
 // window is too small to view
 function browserTooSmall() {
@@ -18,6 +16,34 @@ function browserTooSmall() {
   }, 500);
 }
 // browserTooSmall();
+
+var userQuestionTypes;
+
+// $('#save-question').on('click', function(event) {
+//   event.preventDefault();
+//   userQuestionTypes = $('#')
+//       var searchIDs = $("#find-table input:checkbox:checked").map(function(){
+//         return $(this).val();
+//       }).get(); // <----
+//       console.log(searchIDs);
+//   });
+// });
+
+//now needs to pass through some kind of request and be able to access through the controller 
+// function saveState() {
+//   var state = { mapArray: mapArray,
+//                 ashPos: ashPos,
+//                 pokemonToGenerate: pokemonToGenerate,
+//                 mapNumber: mapNumber };
+//   $.ajax({
+//     type: "post",
+//     url: "/mapstate",
+//     data: {data_value: JSON.stringify(state) },
+//     success: function() {
+//       window.location.href = url; 
+//     }
+//   });
+// };
 
 // Global variables
 $(document).ready(function() {

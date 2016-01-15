@@ -1,3 +1,4 @@
+
 function randDigit(min, max) {
 	return Math.floor(Math.random() * (max-min + 1) + min);
 }
@@ -63,7 +64,6 @@ function createSubtractionProblem(numPossibleSolutions, minDigit, maxDigit) {
 	possibleSolutions = randomizeArray(possibleSolutions);
 	return {num1: num1, num2: num2, operation: '-', answer: difference, choices: possibleSolutions};
 }
-
 
 // Returns two numbers within range, their produce, and an array
 // of given length of false possible solutions plus the correct solution

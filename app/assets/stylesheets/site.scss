@@ -249,24 +249,24 @@ $pokered: #E3350D;
   #video-background.collapsing {
     display:none;
   }
-  
-  .about {
-    background-repeat: no-repeat;
-    background-image:url("http://images.alphacoders.com/235/235203.png");
-    background-size: cover;
-    font-family: 'Francois One', sans-serif;
-    font-size: 25px;
-    color: #11C8E3;
-     
-  }
   .pokedex-image {
     height: 50%;
   }
-  // #mission {
-  //   width: 50%;
-  //   padding-top: 100px;
-  //   padding-left: 50px;
-  // }
+  
+  //Styles for about page
+  .about {
+    background-image: url("http://images.alphacoders.com/235/235203.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: -20% -20%; 
+  }
+  h4.headers {
+    font-family: 'pokemon_solidnormal';
+    letter-spacing: 2px;
+  }
+  p.about-us {
+    font-size: 1.3em;
+  }
   //Pikachu bouncing
   .pika-gif {
     position: relative;
