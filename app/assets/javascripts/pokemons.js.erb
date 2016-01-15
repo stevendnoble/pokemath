@@ -26,13 +26,13 @@ $(document).ready(function() {
         $choice2 = $('#choice2'),
         $choice3 = $('#choice3');
 
-    var problemtypess = {
+    var problemTypes = {
       simpleAddition: {
         mathFunction: createAdditionProblem,
         min: 0,
         max: 10
       },
-      doubleDigitAddition: {
+      ddAddition: {
         mathFunction: createAdditionProblem,
         min: 10,
         max: 99
@@ -42,22 +42,22 @@ $(document).ready(function() {
         min: 0,
         max: 10
       },
-      doubleDigitSubtraction: {
+      ddSubtraction: {
         mathFunction: createSubtractionProblem,
         min: 10,
         max: 99
       },
       simpleMultiplication: {
         mathFunction: createMultiplicationProblem,
-        min: 0,
+        min: 2 ,
         max: 10
       },
-      doubleDigitMultiplication: {
+      ddMultiplication: {
         mathFunction: createMultiplicationProblem,
-        min: 0,
-        max: 10
+        min: 10,
+        max: 99
       },
-      division: {
+      simpleDivision: {
         mathFunction: createSimpleDivisionProblem
       }
     };
@@ -85,7 +85,8 @@ $(document).ready(function() {
 
     // Displays the questions
     function displayQuestions() {
-      question = createAdditionProblem(3, 0, 10);
+      type = Math.floor(Math.random(1) * userQuestionTypes.length);
+      question = problemTypes[userQuestionTypes[type]].mathFunction(3, problemTypes[userQuestionTypes[type]].min, problemTypes[userQuestionTypes[type]].max);
       inputValues(questionNumber, question);
       $(document).on('keypress', function(event) {
         event.preventDefault();
@@ -210,47 +211,6 @@ $(document).ready(function() {
         }
       }, 1000);
     }
-    
-    //now needs to pass through some kind of request and be able to access through the controller 
-    function saveQuestionTypes() {
-      var state = { mapArray: mapArray,
-                    ashPos: ashPos,
-                    pokemonToGenerate: pokemonToGenerate,
-                    mapNumber: mapNumber };
-      $.ajax({
-        type: "post",
-        url: "/mapstate",
-        data: {data_value: JSON.stringify(state) },
-        success: function() {
-          window.location.href = url; 
-        }
-      });
-    };
-
-    function loadQuestionTypes() {
-      $.ajax({
-        type: "get",
-        url: "/mapstate",
-        success: function(data) {
-          if (data.initialize_map) {
-            mapArray = maps['map1'];
-            mapNumber = 1;
-            setMap();
-            generatePokemon(3, mapNumber);
-          } else {
-            mapArray = data.map_state.mapArray;
-            ashPos = data.map_state.ashPos;
-            pokemonToGenerate = data.map_state.pokemonToGenerate;
-            mapNumber = data.map_state.mapNumber;
-            setMap();
-            generatePokemon(pokemonToGenerate, mapNumber);
-          }
-        } 
-      });
-    }
-
-
-
 
     startBattle();
   });

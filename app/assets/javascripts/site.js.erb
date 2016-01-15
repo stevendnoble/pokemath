@@ -128,15 +128,12 @@ $(document).ready(function() {
           imageUrlToAppend,
           pokemonArray = maps['pokemon' + mapNumber];
       for(i=0; i<number; i++) {
-        console.log(pokemonArray.length)
         pokemonId = pokemonArray[Math.floor(pokemonArray.length*Math.random())];
-        console.log(pokemonId)
         checkTile = true;
         while (checkTile) {
           row = 1 + Math.floor(4*Math.random());
           col = 1 + Math.floor(10*Math.random());
           if (mapArray[row][col] === 0 && (row !== ashPos.row && col !== ashPos.col)) {
-            console.log(pokemonId)
             if (pokemonId === undefined) { alert("hi")}
             checkTile = false;
             placePokemon(pokemonId, row, col);
