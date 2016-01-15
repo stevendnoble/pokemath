@@ -65,7 +65,6 @@ function createSubtractionProblem(numPossibleSolutions, minDigit, maxDigit) {
 	return {num1: num1, num2: num2, operation: '-', answer: difference, choices: possibleSolutions};
 }
 
-
 // Returns two numbers within range, their produce, and an array
 // of given length of false possible solutions plus the correct solution
 // Checks for possible solutions:  must be less than the larger of the numbers,
