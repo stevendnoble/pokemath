@@ -95,6 +95,7 @@ h1.signup-login {
 .btn-login-signup:active {
   background-color: $pokered !important;
   border-color: $pokered !important;
+  outline: 0!important;
 }
 .click-here {
   color: #5CB85C;
@@ -109,4 +110,13 @@ h1.signup-login {
 .header-font {
   font-family: 'pokemon_solidnormal';
   letter-spacing: 2px;
+}
+//Stle for flash msg
+.alert-messages {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  z-index: 7000;
+  padding: 20px;
 }
