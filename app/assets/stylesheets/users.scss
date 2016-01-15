@@ -10,6 +10,13 @@
   border: 3px solid black;
 }
 
+button.borderblack:hover, 
+button.borderblack:focus,
+button.borderblack:active {
+  border: 3px solid black;
+  outline: none;
+}
+
 .borderright {
   border-right: 2px solid black;
 }

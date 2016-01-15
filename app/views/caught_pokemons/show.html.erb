@@ -4,7 +4,7 @@
     <div class="col-xs-6 show-grid borderright leftcolumn"> <!-- left column -->
       <div class="row padding red br12"> <!-- buttons above ash -->
         <div class="col-xs-2 ">
-          <%= image_tag asset_path('water.png'), class: "img-responsive img-circle borderblack" %>
+          <%= image_tag asset_path('water.png'), class: "pokedex-picture img-responsive img-circle borderblack" %>
         </div>
         <div class="col-xs-1">
           <button class="btn btn-xs br12 borderblack btn-danger">&nbsp;</button>
@@ -163,3 +163,6 @@
     </div>
   </div>
 </div>
+<audio autoplay="autoplay">
+  <source src="/assets/<%= @caught_pokemon.national_id %>.mp3" type="audio/mpeg">
+</audio>
