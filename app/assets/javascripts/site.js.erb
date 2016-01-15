@@ -277,7 +277,8 @@ $(document).ready(function() {
       var state = { mapArray: mapArray,
                     ashPos: ashPos,
                     pokemonToGenerate: pokemonToGenerate,
-                    mapNumber: mapNumber };
+                    mapNumber: mapNumber,
+                    backgroundTile: maps['background'+mapNumber] };
       $.ajax({
         type: "post",
         url: "/mapstate",
