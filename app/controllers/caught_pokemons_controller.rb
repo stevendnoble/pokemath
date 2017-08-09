@@ -17,7 +17,6 @@ class CaughtPokemonsController < ApplicationController
 
   def show
     @pokemon = Pokemon.find_by_id(@caught_pokemon.pokemon_id);
-
   end
 
   def destroy
@@ -36,6 +35,7 @@ class CaughtPokemonsController < ApplicationController
   def set_pokemon
     @caught_pokemon = CaughtPokemon.find(params[:id]);
   end
+
   def caught_pokemon_params
     params.require(:caught_pokemon).permit(:name, :user_id, :pokemon_id, :national_id)
   end

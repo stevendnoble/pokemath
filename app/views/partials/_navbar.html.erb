@@ -20,7 +20,7 @@
         <% if current_user %>
           <% unless controller_name == "pokemons" && action_name == "show" %>
             <li>
-              <%= link_to "Question Types", "javascript:void(0)", data: { toggle: "modal", target: "#questionModal" } %>
+              <%= link_to "Questions", "javascript:void(0)", data: { toggle: "modal", target: "#questionModal" } %>
             </li>
           <% end %>
         <% end %>

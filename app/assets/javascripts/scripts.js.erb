@@ -42,7 +42,6 @@ function loadQuestionTypes() {
           checkBoxes[box].checked = true;
         }
       }
-
     } 
   });
 }
@@ -70,6 +69,7 @@ $(document).ready(function() {
     e.preventDefault();
     $("video").prop("muted", !$("video").prop("muted"))
   });
+
   //change the font on click
   $("i.on").on("click", function() {
     if ($(this).hasClass("ion-ios-volume-high")) {
@@ -80,6 +80,7 @@ $(document).ready(function() {
       $(this).addClass("ion-ios-volume-high");
     }
   });
+
   //flash msg fade out
   $('.alert').delay(1200).fadeOut('slow');
 

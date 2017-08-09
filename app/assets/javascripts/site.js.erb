@@ -1,19 +1,19 @@
 $(document).ready(function() {
   $(".site.map").ready(function() {
 
-    var keyPressed;
-    var selector;
+    var keyPressed,
+        selector,
 
-    var $gameScreen = $('.game-screen'),
+        $gameScreen = $('.game-screen'),
         $gameTile = $('.game-tile'),
-        $gameMap = $('#game-map');
+        $gameMap = $('#game-map'),
 
-    var mapArray,
+        mapArray,
         mapType,
         pokemonToGenerate,
-        mapNumber;
+        mapNumber,
 
-    var maps = {
+        maps = {
           'map1': [
             [ null,  null,  null,  null,  null,  null, 'm3v', 'm3v',  null,  null,  null,  null,  null,  null],
             [ null,  'o1',  'o1',  'o1',  'o1',  'o1',     0,     0,  'o1',  'o1',  'o1',  'o1',  'o1',  null],

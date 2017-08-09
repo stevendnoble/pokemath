@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="row show-grid br12 red text-white pokedex borderblack"> <!-- pokedex -->
     <div class="col-xs-6 show-grid borderright leftcolumn"> <!-- left column -->
       <div class="row padding red br12"> <!-- buttons above ash -->
@@ -156,7 +155,7 @@
       <% if current_user.id == @caught_pokemon.user_id %>
       <div class="row">
         <div class="col-xs-3 col-xs-offset-3">
-          <%= link_to 'Release Pokemon', caught_pokemon_path(@caught_pokemon), id: "no-outline", class: "btn btn-warning", method: :delete %>
+          <%= link_to 'Release Pokemon', caught_pokemon_path(@caught_pokemon), id: "no-outline", class: "btn borderblack btn-warning", method: :delete %>
         </div>
       </div>  
       <% end %>          

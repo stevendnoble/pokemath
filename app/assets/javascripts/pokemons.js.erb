@@ -5,71 +5,71 @@ $(document).ready(function() {
         $battleQuestions = $('#battle-questions'),
         $battleCaught = $('#battle-caught'),
         $battleEscaped = $('#battle-escaped'),
-        $battleToggle = $('.battle-toggle');
+        $battleToggle = $('.battle-toggle'),
 
-    var $gameScreen = $('.game-screen'),
-        $battleScreen = $('#battle-screen');
+        $gameScreen = $('.game-screen'),
+        $battleScreen = $('#battle-screen'),
 
-    var $hp = $('#hp'),
+        $hp = $('#hp'),
         $battlePokemon = $('.battle-pokemon'),
         $chooseYou = $('#choose-you'),
         $answerChoice = $('#answer-choice'),
         $pokemonNameField = $('#pokemon-name-field'),
         $hiddenTimer = $('#hidden-timer'),
-        $timer = $('#timer');
+        $timer = $('#timer'),
 
-    var $problemNumber = $('#problem-number'),
+        $problemNumber = $('#problem-number'),
         $num1 = $('#num1'),
         $num2 = $('#num2'),
         $operation = $('#operation'),
         $choice1 = $('#choice1'),
         $choice2 = $('#choice2'),
-        $choice3 = $('#choice3');
+        $choice3 = $('#choice3'),
 
-    var backgroundTile;
+        backgroundTile,
 
-    var problemTypes = {
-      simpleAddition: {
-        mathFunction: createAdditionProblem,
-        min: 0,
-        max: 10
-      },
-      ddAddition: {
-        mathFunction: createAdditionProblem,
-        min: 10,
-        max: 99
-      },
-      simpleSubtraction: {
-        mathFunction: createSubtractionProblem,
-        min: 0,
-        max: 10
-      },
-      ddSubtraction: {
-        mathFunction: createSubtractionProblem,
-        min: 10,
-        max: 99
-      },
-      simpleMultiplication: {
-        mathFunction: createMultiplicationProblem,
-        min: 2 ,
-        max: 10
-      },
-      ddMultiplication: {
-        mathFunction: createMultiplicationProblem,
-        min: 10,
-        max: 99
-      },
-      simpleDivision: {
-        mathFunction: createSimpleDivisionProblem
-      }
-    };
+        problemTypes = {
+          simpleAddition: {
+            mathFunction: createAdditionProblem,
+            min: 0,
+            max: 10
+          },
+          ddAddition: {
+            mathFunction: createAdditionProblem,
+            min: 10,
+            max: 99
+          },
+          simpleSubtraction: {
+            mathFunction: createSubtractionProblem,
+            min: 0,
+            max: 10
+          },
+          ddSubtraction: {
+            mathFunction: createSubtractionProblem,
+            min: 10,
+            max: 99
+          },
+          simpleMultiplication: {
+            mathFunction: createMultiplicationProblem,
+            min: 2 ,
+            max: 10
+          },
+          ddMultiplication: {
+            mathFunction: createMultiplicationProblem,
+            min: 10,
+            max: 99
+          },
+          simpleDivision: {
+            mathFunction: createSimpleDivisionProblem
+          }
+        },
 
-    var questionNumber = 1;
-    var pokemonTemp = $battlePokemon.attr('src');
+        questionNumber = 1,
+        pokemonTemp = $battlePokemon.attr('src'),
 
-    var keyPressed;
-    var questions;
-    var caught = false;
+        keyPressed,
+        questions,
+        caught = false;
 
     // Sets the height of a tile to be the same as the width
     // to make each one a square

@@ -16,16 +16,8 @@ class PokemonsController < ApplicationController
       else
         new_pokemon = Pokegem.get "pokemon", params[:id]
         parsed_pokemon = ActiveSupport::JSON.decode(new_pokemon)
-        if parsed_pokemon["types"][1]
-          type2 = parsed_pokemon["types"][1]["name"]
-        else
-          type2 = nil
-        end
-        if parsed_pokemon["evolutions"][0]
-          evolve_to = parsed_pokemon["evolutions"][0]["name"]
-        else
-          evolve_to = nil
-        end
+        type2 = parsed_pokemon["types"][1] ? parsed_pokemon["types"][1]["name"] : nil
+        evolve_to = parsed_pokemon["evolutions"][0] ? parsed_pokemon["evolutions"][0]["name"] : nil
         @pokemon = Pokemon.new({
                                   national_id: parsed_pokemon["national_id"],
                                   species: parsed_pokemon["name"],
@@ -46,11 +38,7 @@ class PokemonsController < ApplicationController
         @pokemon.catch_rate -= @pokemon.sp_attack
         @pokemon.catch_rate -= @pokemon.sp_defense
         @pokemon.catch_rate -= @pokemon.speed
-        if @pokemon.save
-          #success
-        else
-          #error
-        end
+        @pokemon.save
       end
     end
   end
